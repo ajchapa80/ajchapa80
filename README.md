@@ -39,7 +39,7 @@ All security exercises are performed using authorized systems in isolated lab en
 
 ## Education and Development
 
-- Bachelor of Science in Cybersecurity, Project Management Concentration
+- Bachelor of Science in Cybersecurity, Project Management Concentration - Expected September 2026
 - InfoSec Labs Pre-Security Fundamentals Certificate
 - InfoSec Labs Alert Investigation Specialist training
 - CompTIA Security+ preparation
@@ -53,5 +53,5 @@ My long-term goal is to advance into security operations and eventually build a 
 
 ## Connect With Me
 
-- LinkedIn: www.linkedin.com/in/aj-chapa-a5bb46277
+- [LinkedIn Profile](https://www.linkedin.com/in/aj-chapa-a5bb46277)
 - Portfolio: Project Athenaeum and additional projects are available through my GitHub repositories
