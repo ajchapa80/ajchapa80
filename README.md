@@ -12,17 +12,19 @@ My background includes leadership, physical security, public-sector operations, 
 - SIEM and log analysis
 - Endpoint detection and response
 - Linux and Windows administration
-- Networking and traffic analysis
-- Incident response
-- IT troubleshooting
-- Security documentation
+- Networking and vulnerability assessment
+- IT troubleshooting and support
+- Python security automation
+- AI-assisted security monitoring
+- Wazuh lab development
+- Incident response and technical documentation
 - CompTIA Security+ preparation
 
 ## Featured Project
 
 ### [Project Athenaeum](https://github.com/ajchapa80/project-athenaeum)
 
-Project Athenaeum is my cybersecurity and IT portfolio. It contains documented labs, sanitized security investigations, system administration exercises, technical projects, and evidence of continued professional development.
+Project Athenaeum is my cybersecurity and IT portfolio. Labs 01 through 06 are completed and published with technical documentation and sanitized evidence. The next project is Lab 07: Athenaeum Business Guardian MVP, a simulated small-business monitoring environment involving Wazuh, Windows endpoint telemetry, Python-based detection, AI-assisted alert explanations, backup monitoring, financial-risk indicators, and human approval controls.
 
 ## Home Lab
 
