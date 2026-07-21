@@ -8,15 +8,15 @@ My background includes leadership, physical security, public-sector operations, 
 
 ## Current Focus
 
+- IT support and technical troubleshooting
 - Security operations and alert investigation
 - SIEM and log analysis
 - Endpoint detection and response
-- Linux and Windows administration
+- Windows and Linux administration
 - Networking and vulnerability assessment
-- IT troubleshooting and support
+- Wazuh monitoring lab development
 - Python security automation
 - AI-assisted security monitoring
-- Wazuh lab development
 - Incident response and technical documentation
 - CompTIA Security+ preparation
 
@@ -24,7 +24,11 @@ My background includes leadership, physical security, public-sector operations, 
 
 ### [Project Athenaeum](https://github.com/ajchapa80/project-athenaeum)
 
-Project Athenaeum is my cybersecurity and IT portfolio. Labs 01 through 06 are completed and published with technical documentation and sanitized evidence. The next project is Lab 07: Athenaeum Business Guardian MVP, a simulated small-business monitoring environment involving Wazuh, Windows endpoint telemetry, Python-based detection, AI-assisted alert explanations, backup monitoring, financial-risk indicators, and human approval controls.
+Project Athenaeum is my cybersecurity and IT portfolio. Labs 01 through 07 are completed and published with technical documentation and sanitized evidence.
+
+The newest completed project, Lab 07: BusinessGuardianLab Network Setup, established an isolated Windows 11 small-business workstation using Oracle VirtualBox, the private `BusinessGuardianLab` network, persistent static IPv4 configuration, internet-isolation validation, and a clean recovery snapshot.
+
+The next project phase will introduce centralized monitoring with Wazuh, Windows endpoint telemetry, controlled test events, Python-based detection, and AI-assisted alert explanations.
 
 ## Home Lab
 
@@ -36,6 +40,9 @@ My current lab environment includes:
 - Windows 11
 - Oracle VirtualBox
 - Internal and NAT virtual networking
+- BusinessGuardian-Win11-Workstation
+- VirtualBox Internal Network: `BusinessGuardianLab`
+- Static lab network: `192.168.70.0/24`
 
 All security exercises are performed using authorized systems in isolated lab environments.
 
