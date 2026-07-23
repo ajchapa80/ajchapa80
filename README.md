@@ -26,23 +26,27 @@ My background includes leadership, physical security, public-sector operations, 
 
 Project Athenaeum is my cybersecurity and IT portfolio. Labs 01 through 07 are completed and published with technical documentation and sanitized evidence.
 
-The newest completed project, Lab 07: BusinessGuardianLab Network Setup, established an isolated Windows 11 small-business workstation using Oracle VirtualBox, the private `BusinessGuardianLab` network, persistent static IPv4 configuration, internet-isolation validation, and a clean recovery snapshot.
+The newest completed project, Lab 08: Wazuh Monitoring Server Setup, deployed a centralized monitoring server with separate NAT and isolated internal-network adapters, persistent IPv4 addressing, validated Wazuh services, local dashboard access, and protected portfolio evidence.
 
-The next project phase will introduce centralized monitoring with Wazuh, Windows endpoint telemetry, controlled test events, Python-based detection, and AI-assisted alert explanations.
+The next project phase will install the Wazuh agent on the Windows business workstation, confirm active endpoint reporting, review Windows telemetry, and generate controlled security events.
 
 ## Home Lab
 
 My current lab environment includes:
 
-- Kali Linux
-- Ubuntu Linux
-- Metasploitable 2
-- Windows 11
 - Oracle VirtualBox
-- Internal and NAT virtual networking
-- BusinessGuardian-Win11-Workstation
+- Kali Linux security workstation
+- Ubuntu Linux practice virtual machine
+- Metasploitable 2 vulnerable target
+- Windows 11 administration lab
+- VirtualBox Internal Network: `CyberLab`
+- CyberLab subnet: `192.168.56.0/24`
+- BusinessGuardian-Win11-Workstation: `192.168.70.10/24`
+- Wazuh Monitoring Server: `192.168.70.20/24`
 - VirtualBox Internal Network: `BusinessGuardianLab`
-- Static lab network: `192.168.70.0/24`
+- BusinessGuardianLab subnet: `192.168.70.0/24`
+- NAT and isolated internal-network segmentation
+- Local Wazuh dashboard access through VirtualBox port forwarding
 
 All security exercises are performed using authorized systems in isolated lab environments.
 
