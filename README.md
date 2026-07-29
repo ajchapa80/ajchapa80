@@ -10,14 +10,13 @@ My background includes leadership, physical security, public-sector operations, 
 
 - IT support and technical troubleshooting
 - Security operations and alert investigation
-- SIEM and log analysis
-- Wazuh endpoint monitoring
+- SIEM and Wazuh monitoring
 - Windows endpoint telemetry
-- Controlled security-event generation
-- Alert severity and rule review
-- JSON security-data analysis
+- Alert severity and rule analysis
+- Structured security-data processing
 - Python security automation
 - AI-assisted alert explanation
+- Human-in-the-loop security decision support
 - Incident investigation and documentation
 - Windows and Linux administration
 - Networking and vulnerability assessment
@@ -27,11 +26,13 @@ My background includes leadership, physical security, public-sector operations, 
 
 ### [Project Athenaeum](https://github.com/ajchapa80/project-athenaeum)
 
-Project Athenaeum is my cybersecurity and IT portfolio. Labs 01 through 10 are completed and published with technical documentation and sanitized evidence.
+Project Athenaeum is my cybersecurity and IT portfolio. Labs 01 through 11 are completed and published with technical documentation, working project files, and sanitized evidence.
 
-The newest completed project, Lab 10: Wazuh Alert Review and AI Data Collection, generated controlled Windows events and followed them through the complete monitoring workflow. The resulting Wazuh alert was reviewed through its dashboard details and structured JSON fields, then converted into a smaller sanitized data sample for future Python processing and AI-assisted alert explanation.
+The newest completed project, Lab 11: AI Alert Explainer MVP, is a functional Python tool that reads selected fields from a sanitized Wazuh alert sample and produces a structured plain-language report. The report includes endpoint information, Windows event context, Wazuh rule details, severity interpretation, analyst context, recommended review steps, and a final assessment.
 
-The next project phase will focus on using Python to extract important alert fields, create clear incident summaries, recommend investigation steps, and support human-reviewed AI explanations.
+The published lab includes the working Python script, sanitized alert-data sample, generated report, technical documentation, and nine supporting screenshots. Human review remains required before any security decision or response action.
+
+The next project phase will test the tool with additional alert types, improve data handling, and evaluate the consistency and accuracy of its explanations.
 
 ## Home Lab
 
@@ -56,6 +57,12 @@ My current lab environment includes:
 - Controlled Windows event generation
 - Wazuh alert and JSON field review
 - Sanitized AI-ready alert data samples
+- Controlled Windows event and Wazuh alert generation
+- Wazuh alert-detail and rule-field review
+- Sanitized security-data samples
+- Functional Python AI Alert Explainer MVP
+- Generated plain-language alert reports
+- Human-reviewed investigation recommendations
 
 All security exercises are performed using authorized systems in isolated lab environments.
 
