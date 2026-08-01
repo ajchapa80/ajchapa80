@@ -12,10 +12,11 @@ My background includes leadership, physical security, public-sector operations, 
 - Security operations and alert investigation
 - SIEM and Wazuh monitoring
 - Windows endpoint telemetry
-- Alert severity and rule analysis
-- Structured security-data processing
 - Python security automation
 - AI-assisted alert explanation
+- Software testing and validation
+- Error-handling verification
+- Security-data quality and missing-field handling
 - Human-in-the-loop security decision support
 - Incident investigation and documentation
 - Windows and Linux administration
@@ -26,18 +27,19 @@ My background includes leadership, physical security, public-sector operations, 
 
 ### [Project Athenaeum](https://github.com/ajchapa80/project-athenaeum)
 
-Project Athenaeum is my cybersecurity and IT portfolio. Labs 01 through 11 are completed and published with technical documentation, working project files, and sanitized evidence.
+Project Athenaeum is my cybersecurity and IT portfolio. Labs 01 through 12 are completed and published with technical documentation, working project files, testing evidence, and sanitized screenshots.
 
-The newest completed project, Lab 11: AI Alert Explainer MVP, is a functional Python tool that reads selected fields from a sanitized Wazuh alert sample and produces a structured plain-language report. The report includes endpoint information, Windows event context, Wazuh rule details, severity interpretation, analyst context, recommended review steps, and a final assessment.
+Lab 11 created the AI Alert Explainer MVP, a functional Python tool that converts selected Wazuh alert fields into a structured plain-language security report.
 
-The published lab includes the working Python script, sanitized alert-data sample, generated report, technical documentation, and nine supporting screenshots. Human review remains required before any security decision or response action.
+The newest completed project, Lab 12: AI Alert Explainer Testing and Validation, preserved the published Lab 11 MVP as a stable baseline and tested copied files in a separate workspace. Testing covered normal execution, output-file creation, missing and empty input files, missing alert fields, Wazuh rule-level severity changes, and final restoration to the original working state.
 
-The next project phase will test the tool with additional alert types, improve data handling, and evaluate the consistency and accuracy of its explanations.
+All planned validation tests passed. The results provide documented evidence for future improvements rather than adding untested features directly to the stable MVP.
 
 ## Home Lab
 
-My current lab environment includes:
+My current lab infrastructure includes:
 
+- Windows 11 host computer
 - Oracle VirtualBox
 - Kali Linux security workstation
 - Ubuntu Linux practice virtual machine
@@ -52,19 +54,23 @@ My current lab environment includes:
 - BusinessGuardianLab subnet: `192.168.70.0/24`
 - NAT and isolated internal-network segmentation
 - Local Wazuh dashboard access through VirtualBox port forwarding
-- Post-deployment recovery snapshots
-- Active end-to-end Wazuh alert workflow
-- Controlled Windows event generation
-- Wazuh alert and JSON field review
-- Sanitized AI-ready alert data samples
+- Clean recovery snapshots for major deployment stages
+
+### Validated Lab Capabilities
+
+- End-to-end Windows-to-Wazuh monitoring workflow
 - Controlled Windows event and Wazuh alert generation
-- Wazuh alert-detail and rule-field review
-- Sanitized security-data samples
+- Wazuh alert-detail, rule-field, and JSON review
+- Sanitized security-data sample preparation
 - Functional Python AI Alert Explainer MVP
-- Generated plain-language alert reports
+- Plain-language alert report generation
+- Missing-file and empty-file error testing
+- Missing alert-field behavior testing
+- Wazuh severity-logic validation
+- Stable baseline restoration and verification
 - Human-reviewed investigation recommendations
 
-All security exercises are performed using authorized systems in isolated lab environments.
+All security exercises are performed using personally owned or authorized systems in isolated lab environments.
 
 ## Education and Development
 
