@@ -10,23 +10,26 @@ My current technical development is centered on hands-on SOC, cybersecurity, and
 
 ## Current Focus
 
-* IT support and technical troubleshooting
-* Security operations and alert investigation
-* SIEM and Wazuh monitoring
-* Windows endpoint telemetry
-* Python security automation
-* Python-based alert explanation
-* AI-assisted security-tool design
-* Software testing and validation
-* Security-data normalization
-* Vendor-neutral alert-processing architecture
-* Missing-field and error-handling validation
-* Multiple-alert processing design
-* Human-in-the-loop security decision support
-* Incident investigation and documentation
-* Windows and Linux administration
-* Networking and vulnerability assessment
-* CompTIA Security+ preparation
+- IT support and technical troubleshooting
+- Security operations and alert investigation
+- SIEM and Wazuh monitoring
+- Windows endpoint telemetry
+- Python security automation
+- Python-based alert explanation
+- Multiple-alert processing
+- Security-data normalization and validation
+- Vendor-neutral alert-processing architecture
+- Platform-neutral severity handling
+- Missing-field and malformed-data validation
+- Per-alert failure isolation
+- Batch processing and reporting
+- Source traceability and overwrite protection
+- Software testing and deterministic validation
+- Human-in-the-loop security decision support
+- Incident investigation and documentation
+- Windows and Linux administration
+- Networking and vulnerability assessment
+- CompTIA Security+ preparation
 
 ## Featured Project
 
@@ -34,91 +37,114 @@ My current technical development is centered on hands-on SOC, cybersecurity, and
 
 Project Athenaeum is my hands-on cybersecurity and information technology portfolio.
 
-Labs 01 through 13 are completed and published with technical documentation, working project files, testing evidence, and sanitized screenshots.
+Labs 01 through 14 are completed and published with technical documentation, working project files, testing evidence, sanitized screenshots, and selected validation artifacts.
 
 The project has progressed through:
 
-* Technical documentation and lab organization
-* Isolated VirtualBox cybersecurity environments
-* Linux and Windows administration
-* Authorized DVWA web-security testing
-* Nmap network and service discovery
-* Windows endpoint monitoring with Wazuh
-* Controlled security-event generation
-* Alert review and structured JSON analysis
-* Python-based alert explanation
-* Software testing and validation
-* Vendor-neutral security-data normalization design
-* Requirements-driven security-tool development
+- Technical documentation and lab organization
+- Isolated VirtualBox cybersecurity environments
+- Linux and Windows administration
+- Authorized web-security testing
+- Nmap network and service discovery
+- Windows endpoint monitoring with Wazuh
+- Controlled security-event generation
+- Alert review and structured security-data analysis
+- Python-based alert explanation
+- Software testing and validation
+- Vendor-neutral security-data normalization
+- Requirements-driven security-tool design
+- Multiple-alert batch processing
+- Failure isolation and validation handling
+- Individual report and batch-summary generation
+- Repeatability and overwrite-protection testing
 
 ### Current Project Milestone
 
-The newest completed project is **Lab 13: AI Alert Explainer v2 Requirements and Design**.
+The newest completed project is **Lab 14: AI Alert Explainer v2 Multiple Alert Processing**.
 
-Lab 13 used the validated results from Labs 11 and 12 to design the next version before additional code is written.
+Lab 14 implemented the architecture designed during Lab 13 and moved the project from single-alert processing to a validated multiple-alert workflow.
 
-The design establishes:
+The implementation can:
 
-* A vendor-neutral normalized alert model
-* Initial Wazuh-to-normalized field mapping
-* Normalized severity
-* Validation rules
-* Missing-field and malformed-value handling
-* Multiple-alert processing
-* Per-alert failure isolation
-* Unique individual reports
-* Batch-summary reporting
-* Five deterministic test scenarios
-* Human-review requirements
+- Discover multiple supported alert files during one execution
+- Translate Wazuh-specific data into a normalized alert structure
+- Apply platform-neutral severity categories
+- Identify missing and malformed information
+- Distinguish normal processing, warnings, and failed validation
+- Isolate individual failures so one bad alert does not stop the batch
+- Generate unique individual analyst reports
+- Create batch-level processing summaries
+- Preserve source traceability
+- Protect previous output from overwrite
+- Require human review before security conclusions are made
 
-Labs 11 and 12 remain preserved as the validated MVP baseline.
+Lab 14 was tested against acceptance criteria defined before implementation.
 
-The next technical phase, **Lab 14: AI Alert Explainer v2 Multiple Alert Processing**, will implement and test the approved design locally before any public GitHub publication.
+The expected result was matched exactly:
+
+- 5 alerts discovered
+- 2 processed normally
+- 2 processed with warnings
+- 1 failed validation
+- 4 individual reports created
+- 1 batch summary created
+
+A second complete execution produced the same processing result without overwriting the first run.
+
+Labs 11 and 12 remain preserved as the validated single-alert MVP baseline. Lab 13 remains the v2 requirements and design baseline. Lab 14 establishes the validated multiple-alert processing baseline.
 
 ## Home Lab
 
 My current lab infrastructure includes:
 
-* Windows 11 host computer
-* Oracle VirtualBox
-* Kali Linux security workstation
-* Ubuntu Linux practice virtual machine
-* Metasploitable 2 vulnerable target
-* Windows 11 administration lab
-* VirtualBox Internal Network: `CyberLab`
-* CyberLab subnet: `192.168.56.0/24`
-* BusinessGuardian-Win11-Workstation: `192.168.70.10/24`
-* Wazuh Monitoring Server: `192.168.70.20/24`
-* Active Wazuh Windows endpoint agent
-* VirtualBox Internal Network: `BusinessGuardianLab`
-* BusinessGuardianLab subnet: `192.168.70.0/24`
-* NAT and isolated internal-network segmentation
-* Local Wazuh dashboard access through VirtualBox port forwarding
-* Clean recovery snapshots for major deployment stages
+- Windows 11 host computer
+- Oracle VirtualBox
+- Kali Linux security workstation
+- Ubuntu Linux practice virtual machine
+- Metasploitable 2 vulnerable target
+- Windows 11 administration lab
+- VirtualBox Internal Network: `CyberLab`
+- CyberLab subnet: `192.168.56.0/24`
+- BusinessGuardian-Win11-Workstation: `192.168.70.10/24`
+- Wazuh Monitoring Server: `192.168.70.20/24`
+- Active Wazuh Windows endpoint agent
+- VirtualBox Internal Network: `BusinessGuardianLab`
+- BusinessGuardianLab subnet: `192.168.70.0/24`
+- NAT and isolated internal-network segmentation
+- Local Wazuh dashboard access through VirtualBox port forwarding
+- Clean recovery snapshots for major deployment stages
 
 ### Validated Lab Capabilities
 
-* Isolated virtual-network deployment
-* Static IPv4 configuration
-* Windows and Linux administration
-* Authorized vulnerability testing
-* Nmap service and network scanning
-* End-to-end Windows-to-Wazuh monitoring
-* Controlled Windows event and Wazuh alert generation
-* Alert-detail, rule-field, and JSON review
-* Sanitized security-data preparation
-* Functional Python AI Alert Explainer MVP
-* Plain-language alert report generation
-* Missing-file and empty-file testing
-* Missing alert-field testing
-* Wazuh severity-logic validation
-* Stable baseline restoration and verification
-* Vendor-neutral alert-model design
-* Wazuh-to-normalized field-mapping design
-* Normalized severity design
-* Multiple-alert processing workflow design
-* Deterministic validation-test planning
-* Human-reviewed investigation recommendations
+- Isolated virtual-network deployment
+- Static IPv4 configuration
+- Windows and Linux administration
+- Authorized vulnerability testing
+- Nmap service and network scanning
+- End-to-end Windows-to-Wazuh monitoring
+- Controlled Windows event and Wazuh alert generation
+- Alert-detail, rule-field, and structured security-data review
+- Sanitized security-data preparation
+- Functional Python AI Alert Explainer MVP
+- Plain-language alert report generation
+- Missing-file and empty-file testing
+- Missing alert-field testing
+- Wazuh severity-logic validation
+- Stable baseline restoration and verification
+- Vendor-neutral normalized alert processing
+- Wazuh-to-normalized field translation
+- Platform-neutral severity normalization
+- Multiple-alert batch processing
+- Missing and malformed data validation
+- Per-alert failure isolation
+- Unique individual report generation
+- Batch-summary generation
+- Source traceability
+- Non-destructive source handling
+- Output overwrite protection
+- Deterministic acceptance testing
+- Repeatable processing validation
+- Human-reviewed security decision support
 
 All cybersecurity exercises are performed using personally owned or authorized systems in isolated lab environments.
 
@@ -126,34 +152,36 @@ All cybersecurity exercises are performed using personally owned or authorized s
 
 My project work follows a build, validate, document, and extend approach.
 
-* Preserve validated work rather than rebuilding it unnecessarily
-* Test changes before treating them as stable
-* Keep technical evidence and documentation with each project
-* Separate vendor-specific data from reusable internal processing where practical
-* Use deterministic logic for parsing, validation, normalization, and control decisions
-* Identify missing information rather than fabricate values
-* Keep human review involved in consequential security decisions
-* Publish only sanitized, portfolio-appropriate material
+- Preserve validated work rather than rebuilding it unnecessarily
+- Define expected behavior before implementation when practical
+- Test changes before treating them as stable
+- Preserve stable baselines before adding new capabilities
+- Keep source-specific data separate from reusable processing logic
+- Use deterministic logic for core parsing, validation, normalization, and control decisions
+- Identify missing or malformed information rather than fabricate values
+- Preserve source evidence and traceability
+- Keep human review involved in consequential security decisions
+- Publish only sanitized, portfolio-appropriate material
 
 ## Education and Development
 
-* Bachelor of Science in Cybersecurity with a concentration in Project Management Fundamentals — expected September 2026
-* InfoSec Labs Pre-Security Fundamentals Certificate
-* InfoSec Labs Alert Investigation Specialist training
-* CompTIA Security+ preparation
-* Ongoing SOC, EDR, SIEM, endpoint-monitoring, Python, networking, Windows, Linux, and IT support practice
-* Continued hands-on development through Project Athenaeum
+- Bachelor of Science in Cybersecurity with a concentration in Project Management Fundamentals — expected September 2026
+- InfoSec Labs Pre-Security Fundamentals Certificate
+- InfoSec Labs Alert Investigation Specialist training
+- CompTIA Security+ preparation
+- Ongoing SOC, EDR, SIEM, endpoint-monitoring, Python, networking, Windows, Linux, and IT support practice
+- Continued hands-on development through Project Athenaeum
 
 ## Professional Goals
 
 My immediate goal is to begin in an IT support, SOC analyst, cybersecurity support, or public-sector IT role where I can apply practical troubleshooting, documentation, endpoint-monitoring, and security-analysis skills while continuing to build real-world technical experience.
 
-My longer-term goal is to advance into security operations and systems responsibilities while continuing to develop practical security tooling and automation.
+My longer-term goal is to advance into more technical security and systems responsibilities while continuing to develop practical cybersecurity tooling, automation, and investigation skills.
 
-Ultimately, I want to build a cybersecurity and security-services business focused on helping organizations better understand, investigate, and respond to security activity while keeping important decisions under human control.
+Ultimately, I want to build a cybersecurity and security-services business focused on helping smaller organizations better understand, investigate, and respond to security activity while keeping consequential decisions under appropriate human control.
 
 ## Connect With Me
 
-* [LinkedIn Profile](https://www.linkedin.com/in/aj-chapa-a5bb46277)
-* [Project Athenaeum](https://github.com/ajchapa80/project-athenaeum)
-* Additional projects and technical work are available through my GitHub repositories.
+- [LinkedIn Profile](https://www.linkedin.com/in/aj-chapa-a5bb46277)
+- [Project Athenaeum](https://github.com/ajchapa80/project-athenaeum)
+- Additional projects and technical work are available through my GitHub repositories.
