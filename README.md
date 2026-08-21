@@ -17,10 +17,12 @@ My current technical development is centered on hands-on SOC, cybersecurity, and
 - Python security automation
 - Vendor-neutral security-data normalization
 - Structured alert records and traceability
-- Missing- and malformed-data validation
+- Deterministic alert triage and decision routing
+- Evidence-quality and missing-data validation
 - Multiple-alert processing and failure isolation
+- Severity-independent security decision logic
+- Uncertainty preservation and investigation routing
 - Deterministic testing and validation
-- Source preservation and audit-oriented processing
 - Human-in-the-loop security decision support
 - Windows and Linux administration
 - Networking and vulnerability assessment
@@ -32,56 +34,64 @@ My current technical development is centered on hands-on SOC, cybersecurity, and
 
 Project Athenaeum is my hands-on cybersecurity and information technology portfolio.
 
-Labs 01 through 15 are complete and published with technical documentation, working project files, sanitized test data, validation evidence, screenshots, and selected project artifacts.
+Labs 01 through 16 are complete and published with technical documentation, working project files, sanitized test data, validation evidence, screenshots, and selected project artifacts.
 
 The project has progressed through:
 
-- Technical documentation and lab organization
-- Isolated VirtualBox cybersecurity environments
+- Technical documentation and isolated lab design
 - Linux and Windows administration
-- Authorized web-security testing
-- Nmap network and service discovery
+- Authorized web and network security testing
 - Windows endpoint monitoring with Wazuh
 - Controlled security-event generation
-- Alert review and structured security-data analysis
+- Structured security-data analysis
 - Python-based alert processing
-- Software testing and deterministic validation
-- Vendor-neutral security-data normalization
-- Requirements-driven security-tool design
+- Deterministic software testing and validation
+- Vendor-neutral alert normalization
 - Multiple-alert batch processing
 - Missing- and malformed-data handling
-- Per-alert failure isolation
-- Source traceability and non-destructive processing
-- Structured vendor-neutral alert records
-- Non-sensitive record identifiers
-- Source and ingestion timestamp preservation
-- Ordered processing history
+- Failure isolation and non-destructive processing
+- Structured JSON alert records
+- Persistent source-to-record traceability
+- Deterministic alert triage
+- Evidence-quality-first decision logic
+- Separate alert and triage decision identities
+- Next-stage security workflow routing
 - Repeat-processing and overwrite-protection validation
 
 ### Current Project Milestone
 
-The newest completed public project is **Lab 15 — Alert Records, Validation, and Traceability**.
+The newest completed public project is **Lab 16 — Alert Triage and Decision Logic**.
 
-Lab 15 extends the validated multiple-alert processing foundation with structured vendor-neutral records designed to preserve alert identity and processing history across future security workflows.
+Lab 16 extends the validated Lab 15 alert-record foundation into deterministic, vendor-neutral cybersecurity triage.
 
-Controlled validation confirmed:
+The implementation:
 
-- 5 supported alert files discovered
-- 2 processed normally
-- 2 processed with warnings
-- 1 failed validation safely
-- 4 processable alert records created
-- Missing data represented explicitly rather than fabricated
-- Malformed severity preserved and normalized safely to `UNKNOWN`
-- Source IDs and timestamps preserved
-- Failed input isolated from unrelated alerts
-- Repeat processing completed without overwriting previous output
+- Preserves original `AR-...` alert-record identities
+- Creates separate `TR-...` triage-decision identities
+- Classifies supported conditions as `KNOWN_COMMON`, `INSUFFICIENT_DATA`, `UNUSUAL`, or `UNKNOWN`
+- Routes records toward `POLICY_EVALUATION` or `INVESTIGATION`
+- Gives material evidence-quality problems priority over recognizable patterns
+- Keeps technical severity separate from triage classification
+- Preserves uncertainty instead of guessing
+- Records chronological decision history
+- Performs no remediation or defensive action
 
-**Final Lab 15 validation: PASS**
+Controlled validation processed five records with zero failures:
 
-Private Business Guardian development has also progressed beyond the public portfolio labs. A live read-only Wazuh evidence connector was validated against the isolated lab using both server and indexed evidence paths, with **257 automated tests passing** and final live validation returning **PASS**.
+`2 KNOWN_COMMON / 1 INSUFFICIENT_DATA / 1 UNUSUAL / 1 UNKNOWN`
 
-Proprietary connector, investigation, policy, approval, remediation, verification, and other product-specific implementation remains private. Project Athenaeum publishes only sanitized technical milestones and portfolio-safe evidence.
+Routing produced:
+
+`2 POLICY_EVALUATION / 3 INVESTIGATION`
+
+A second complete execution reproduced the same results, preserved the original alert-record identities, generated new triage-decision identities, and left previous output intact.
+
+**Final Lab 16 validation: PASS**
+
+Lab 16 demonstrates decision routing, not remediation. A known/common classification does not mean an alert is benign or resolved, and policy evaluation does not authorize defensive action.
+
+Private Business Guardian development continues separately. Production investigation, policy, approval, defensive-action, verification, audit, tenant, and other proprietary product capabilities remain private.
+
 ## Home Lab
 
 My current lab infrastructure includes:
@@ -113,24 +123,26 @@ My current lab infrastructure includes:
 - Structured security-data review
 - Python-based alert processing
 - Vendor-neutral alert normalization
-- Platform-neutral severity handling
-- Missing- and malformed-data validation
 - Multiple-alert batch processing
+- Missing- and malformed-data validation
 - Per-alert failure isolation
-- Structured JSON alert-record generation
-- Non-sensitive record identifiers
+- Structured JSON alert records
+- Non-sensitive alert-record identifiers
 - Source ID and timestamp preservation
 - Ordered processing history
 - Source-to-record traceability
+- Deterministic alert triage
+- Separate triage-decision identities
+- Evidence-quality-first rule evaluation
+- Severity-independent classification
+- Explicit uncertainty preservation
+- Investigation and policy-evaluation routing
 - Non-destructive source handling
-- Batch-summary generation
 - Output overwrite protection
 - Deterministic acceptance testing
 - Repeat-processing validation
 - Live read-only Wazuh evidence validation
-- Human-reviewed security decision support
-
-All cybersecurity exercises are performed using personally owned or authorized systems in isolated lab environments.
+- Human-reviewed consequential security decisions
 
 ## Development Approach
 
