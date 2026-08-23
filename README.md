@@ -1,163 +1,230 @@
 # A.J. Chapa
 
-## Cybersecurity and Information Technology Professional
+## Cybersecurity | Information Technology | Security Operations
 
-I am completing a Bachelor of Science in Cybersecurity with a concentration in Project Management Fundamentals while building practical experience in security operations, alert investigation, endpoint monitoring, Python security automation, Windows and Linux administration, networking, and IT support.
+I enjoy figuring out why something failed, proving what happened, and documenting the solution clearly enough that someone else can follow it.
 
-My background includes leadership, public-sector security operations, troubleshooting, policy compliance, documentation, incident awareness, customer service, and working in environments where reliability and clear communication matter.
+I recently completed the academic requirements for a Bachelor of Science in Cybersecurity with a concentration in Project Management Fundamentals, with degree conferral expected in September 2026. Alongside school, I have been building practical experience in security operations, endpoint monitoring, alert investigation, Python automation, Windows and Linux administration, networking, and IT support.
 
-My current technical development is centered on hands-on SOC, cybersecurity, and IT work documented through Project Athenaeum.
+My professional background also includes leadership, public-sector security operations, policy compliance, incident awareness, troubleshooting, customer service, and working in environments where reliability and clear communication matter.
 
-## Current Focus
+Much of my current technical work is documented through **Project Athenaeum**, a hands-on portfolio that has grown from basic system administration labs into a structured cybersecurity development environment.
+
+---
+
+## What I'm Working On
+
+My current focus is the point where IT troubleshooting, security monitoring, and practical automation meet.
 
 - IT support and technical troubleshooting
 - Security operations and alert investigation
 - SIEM and Wazuh monitoring
 - Windows endpoint telemetry
 - Python security automation
-- Vendor-neutral security-data normalization
+- Vendor-neutral security-data processing
 - Structured alert records and traceability
 - Deterministic alert triage and decision routing
 - Evidence-quality and missing-data validation
-- Multiple-alert processing and failure isolation
-- Severity-independent security decision logic
-- Uncertainty preservation and investigation routing
-- Deterministic testing and validation
-- Human-in-the-loop security decision support
 - Windows and Linux administration
 - Networking and vulnerability assessment
 - CompTIA Security+ preparation
+
+---
 
 ## Featured Project
 
 ### [Project Athenaeum](https://github.com/ajchapa80/project-athenaeum)
 
-Project Athenaeum is my hands-on cybersecurity and information technology portfolio.
+Project Athenaeum started as a way to organize my hands-on cybersecurity work. Sixteen completed labs later, it has become the technical foundation for a much larger security project.
 
-Labs 01 through 16 are complete and published with technical documentation, working project files, sanitized test data, validation evidence, screenshots, and selected project artifacts.
+The progression has been intentional:
 
-The project has progressed through:
+`Build the lab → Monitor the endpoint → Generate security events → Process alerts → Validate the data → Preserve traceability → Triage the condition → Decide what should happen next`
 
-- Technical documentation and isolated lab design
+Along the way, I have worked with:
+
+- VirtualBox lab environments
 - Linux and Windows administration
 - Authorized web and network security testing
-- Windows endpoint monitoring with Wazuh
+- Wazuh endpoint monitoring
 - Controlled security-event generation
-- Structured security-data analysis
-- Python-based alert processing
-- Deterministic software testing and validation
-- Vendor-neutral alert normalization
+- Python-based security-data processing
 - Multiple-alert batch processing
-- Missing- and malformed-data handling
-- Failure isolation and non-destructive processing
-- Structured JSON alert records
-- Persistent source-to-record traceability
-- Deterministic alert triage
-- Evidence-quality-first decision logic
-- Separate alert and triage decision identities
-- Next-stage security workflow routing
-- Repeat-processing and overwrite-protection validation
+- Missing and malformed data
+- Failure isolation
+- Vendor-neutral JSON alert records
+- Source-to-record traceability
+- Deterministic cybersecurity triage
+- Repeatable testing and validation
 
-### Current Project Milestone
+The public repository contains sanitized labs, working code, controlled test data, validation evidence, screenshots, and documentation.
 
-The newest completed public project is **Lab 16 — Alert Triage and Decision Logic**.
+---
 
-Lab 16 extends the validated Lab 15 alert-record foundation into deterministic, vendor-neutral cybersecurity triage.
+## Current Project Milestone
 
-The implementation:
+### Lab 16 — Alert Triage and Decision Logic
 
-- Preserves original `AR-...` alert-record identities
-- Creates separate `TR-...` triage-decision identities
-- Classifies supported conditions as `KNOWN_COMMON`, `INSUFFICIENT_DATA`, `UNUSUAL`, or `UNKNOWN`
+Security alerts rarely arrive with perfect information.
+
+Some match conditions we already understand. Some are missing evidence. Some look unusual. Others simply do not support a confident conclusion yet.
+
+Lab 16 asked a practical question:
+
+**How should a security system decide what happens next without guessing?**
+
+I built a deterministic triage layer that takes the structured alert records created in Lab 15 and routes them toward the next appropriate stage.
+
+The system:
+
+- Preserves the original `AR-...` alert-record identity
+- Creates a separate `TR-...` triage-decision identity
+- Classifies conditions as `KNOWN_COMMON`, `INSUFFICIENT_DATA`, `UNUSUAL`, or `UNKNOWN`
 - Routes records toward `POLICY_EVALUATION` or `INVESTIGATION`
-- Gives material evidence-quality problems priority over recognizable patterns
-- Keeps technical severity separate from triage classification
-- Preserves uncertainty instead of guessing
-- Records chronological decision history
+- Gives missing material evidence priority over familiar-looking patterns
+- Keeps technical severity separate from the actual triage decision
+- Preserves uncertainty rather than inventing an answer
+- Records why each decision was made
 - Performs no remediation or defensive action
 
-Controlled validation processed five records with zero failures:
+The controlled validation processed five records with **zero failures**:
 
-`2 KNOWN_COMMON / 1 INSUFFICIENT_DATA / 1 UNUSUAL / 1 UNKNOWN`
+```text
+2 KNOWN_COMMON
+1 INSUFFICIENT_DATA
+1 UNUSUAL
+1 UNKNOWN
 
-Routing produced:
+2 POLICY_EVALUATION
+3 INVESTIGATION
+```
 
-`2 POLICY_EVALUATION / 3 INVESTIGATION`
-
-A second complete execution reproduced the same results, preserved the original alert-record identities, generated new triage-decision identities, and left previous output intact.
+A second complete run reproduced the same decisions, preserved every original alert-record identity, generated new triage-decision identities, and left the first run intact.
 
 **Final Lab 16 validation: PASS**
 
-Lab 16 demonstrates decision routing, not remediation. A known/common classification does not mean an alert is benign or resolved, and policy evaluation does not authorize defensive action.
+One of the most important lessons from this lab is simple:
 
-Private Business Guardian development continues separately. Production investigation, policy, approval, defensive-action, verification, audit, tenant, and other proprietary product capabilities remain private.
+> A HIGH-severity alert is not automatically malicious, and a LOW-severity alert is not automatically safe.
+
+Severity is one signal. Evidence still has to support the decision.
+
+Lab 16 is intentionally a **decision-routing layer, not a remediation layer**. A `KNOWN_COMMON` classification does not mean benign or resolved, and `POLICY_EVALUATION` does not authorize an action.
+
+---
+
+## Business Guardian
+
+Project Athenaeum is also helping me develop a larger cybersecurity concept called **Business Guardian**.
+
+The long-term goal is an affordable security platform for smaller organizations that may not have dedicated cybersecurity staff.
+
+The idea is to eventually help a business move through a complete security lifecycle:
+
+```text
+Security Event
+      ↓
+Normalize and Validate
+      ↓
+Preserve Evidence and Traceability
+      ↓
+Triage
+      ↓
+Investigate When Needed
+      ↓
+Policy / Approval
+      ↓
+Authorized Defensive Action
+      ↓
+Verify the Result
+      ↓
+Document and Audit
+```
+
+Private Business Guardian development has already progressed beyond the public portfolio labs. A live read-only Wazuh evidence connector was validated against my isolated lab using both server and indexed evidence paths.
+
+**257 automated tests passed, and final live validation returned PASS.**
+
+The actual connector implementation, investigation workflows, production triage logic, policy and approval systems, defensive-action logic, verification mechanisms, tenant architecture, and other proprietary product work remain private.
+
+Project Athenaeum shows the sanitized engineering progression without duplicating the private product.
+
+---
 
 ## Home Lab
 
-My current lab infrastructure includes:
+My current lab gives me a controlled place to build, break, troubleshoot, validate, and restore systems without touching production environments.
+
+Current infrastructure includes:
 
 - Windows 11 host computer
 - Oracle VirtualBox
 - Kali Linux security workstation
-- Ubuntu Linux practice virtual machine
+- Ubuntu Linux practice VM
 - Metasploitable 2 vulnerable target
-- Windows 11 administration lab
-- VirtualBox Internal Network: `CyberLab`
-- CyberLab subnet: `192.168.56.0/24`
-- BusinessGuardian-Win11-Workstation: `192.168.70.10/24`
-- Wazuh Monitoring Server: `192.168.70.20/24`
+- Windows 11 administration workstation
+- Wazuh monitoring server
 - Active Wazuh Windows endpoint agent
-- VirtualBox Internal Network: `BusinessGuardianLab`
-- BusinessGuardianLab subnet: `192.168.70.0/24`
-- NAT and isolated internal-network segmentation
-- Local Wazuh dashboard access through VirtualBox port forwarding
-- Clean recovery snapshots for major deployment stages
+- Isolated `CyberLab` network
+- Isolated `BusinessGuardianLab` network
+- NAT and internal-network segmentation
+- Local Wazuh dashboard access
+- Recovery snapshots at major deployment stages
 
-## Validated Lab Capabilities
+The environment has supported everything from Linux fundamentals and Nmap scanning to live Windows telemetry, Wazuh evidence collection, Python processing, and deterministic security-triage validation.
 
-- Isolated virtual-network deployment
-- Windows and Linux administration
-- Authorized vulnerability and network testing
+---
+
+## What I've Validated
+
+I try not to describe something as working simply because the code runs once.
+
+My labs increasingly use frozen expected results, controlled test data, repeat executions, failure cases, source preservation checks, and documented validation before a capability is treated as stable.
+
+Validated work now includes:
+
 - End-to-end Windows-to-Wazuh monitoring
-- Controlled Windows event and alert generation
-- Structured security-data review
+- Controlled Windows security-event generation
 - Python-based alert processing
 - Vendor-neutral alert normalization
-- Multiple-alert batch processing
-- Missing- and malformed-data validation
+- Multiple-alert processing
+- Missing and malformed data handling
 - Per-alert failure isolation
 - Structured JSON alert records
-- Non-sensitive alert-record identifiers
+- Non-sensitive record identifiers
 - Source ID and timestamp preservation
 - Ordered processing history
-- Source-to-record traceability
-- Deterministic alert triage
-- Separate triage-decision identities
+- Alert-to-decision traceability
+- Deterministic triage classifications
 - Evidence-quality-first rule evaluation
-- Severity-independent classification
-- Explicit uncertainty preservation
+- Severity-independent decision logic
 - Investigation and policy-evaluation routing
-- Non-destructive source handling
 - Output overwrite protection
-- Deterministic acceptance testing
 - Repeat-processing validation
-- Live read-only Wazuh evidence validation
-- Human-reviewed consequential security decisions
+- Live read-only Wazuh evidence collection
 
-## Development Approach
+---
 
-My project work follows a build, validate, document, and extend approach.
+## How I Build
 
-- Preserve validated work rather than rebuilding it unnecessarily
-- Define expected behavior before implementation when practical
-- Test changes before treating them as stable
-- Preserve stable baselines before adding new capabilities
-- Keep source-specific data separate from reusable processing logic
-- Use deterministic logic for core parsing, validation, normalization, and control decisions
-- Identify missing or malformed information rather than fabricate values
-- Preserve source evidence and traceability
-- Keep human review involved in consequential security decisions
-- Publish only sanitized, portfolio-appropriate material
+My development process is straightforward:
+
+**Build → Test → Validate → Document → Preserve → Extend**
+
+A few rules guide the work:
+
+- Nothing gets built twice.
+- Preserve a validated baseline before adding the next capability.
+- Define expected behavior before implementation when practical.
+- Treat logs, alerts, and external security data as untrusted input.
+- Never fabricate missing evidence.
+- Keep source-specific integrations separate from reusable processing logic.
+- Use deterministic logic for core security decisions.
+- Keep consequential actions appropriately human-controlled.
+- Do not call something resolved until the result has been verified.
+- Publish only sanitized, portfolio-appropriate material.
+
+---
 
 ## Education and Development
 
@@ -165,16 +232,19 @@ My project work follows a build, validate, document, and extend approach.
 - InfoSec Labs Pre-Security Fundamentals Certificate
 - InfoSec Labs Alert Investigation Specialist training
 - CompTIA Security+ preparation
-- Ongoing SOC, EDR, SIEM, endpoint-monitoring, Python, networking, Windows, Linux, and IT support practice
-- Continued hands-on development through Project Athenaeum
+- Continued hands-on SOC, SIEM, EDR, endpoint-monitoring, Python, networking, Windows, Linux, and IT support practice
 
-## Professional Goals
+---
 
-My immediate goal is to begin in an IT support, SOC analyst, cybersecurity support, or public-sector IT role where I can apply practical troubleshooting, documentation, endpoint-monitoring, and security-analysis skills while continuing to build real-world technical experience.
+## Where I'm Headed
 
-My longer-term goal is to advance into more technical security and systems responsibilities while continuing to develop practical cybersecurity tooling, automation, and investigation skills.
+My immediate goal is to move into an IT support, SOC analyst, cybersecurity support, or public-sector IT role where I can contribute practical troubleshooting, documentation, endpoint-monitoring, and security-analysis skills while continuing to grow technically.
 
-Ultimately, I want to build cybersecurity technology that helps smaller organizations monitor, understand, investigate, and respond to security activity. My long-term goal is to develop systems that can perform supported defensive actions when policy and authorization permit, while keeping consequential decisions under appropriate human control and verifying that actions actually resolved the issue.
+Longer term, I want to take on deeper security and systems responsibilities while continuing to build practical cybersecurity tooling and automation.
+
+Ultimately, I want to build security technology that helps smaller organizations understand what is happening in their environment and respond safely. That includes systems capable of performing supported defensive actions when policy and authorization permit, while keeping consequential decisions under appropriate human control and verifying that the action actually solved the problem.
+
+---
 
 ## Connect With Me
 
