@@ -38,7 +38,7 @@ My current focus is the point where IT troubleshooting, security monitoring, and
 
 ## Featured Project
 
-### Project Athenaeum
+### [Project Athenaeum](https://github.com/ajchapa80/project-athenaeum)
 
 Project Athenaeum started as a way to organize my hands-on cybersecurity work.
 
