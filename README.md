@@ -1,12 +1,13 @@
 # A.J. Chapa
-
 ## Cybersecurity | Information Technology | Security Operations
 
 I enjoy figuring out why something failed, proving what happened, and documenting the solution clearly enough that someone else can follow it.
 
-I recently completed the academic requirements for a Bachelor of Science in Cybersecurity with a concentration in Project Management Fundamentals, with degree conferral expected in September 2026. Alongside school, I have been building practical experience in security operations, endpoint monitoring, alert investigation, Python automation, Windows and Linux administration, networking, and IT support.
+I recently completed the academic requirements for a Bachelor of Science in Cybersecurity with a concentration in Project Management Fundamentals, with degree conferral expected in September 2026.
 
-My professional background also includes leadership, public-sector security operations, policy compliance, incident awareness, troubleshooting, customer service, and working in environments where reliability and clear communication matter.
+Alongside school and full-time work, I have been building practical experience in security operations, endpoint monitoring, alert investigation, Python automation, Windows and Linux administration, networking, IT support, and security-focused software development.
+
+My professional background also includes public-sector security operations, team leadership, policy compliance, incident awareness, troubleshooting, customer service, and working in environments where reliability, judgment, and clear communication matter.
 
 Much of my current technical work is documented through **Project Athenaeum**, a hands-on portfolio that has grown from basic system administration labs into a structured cybersecurity development environment.
 
@@ -23,7 +24,11 @@ My current focus is the point where IT troubleshooting, security monitoring, and
 - Python security automation
 - Vendor-neutral security-data processing
 - Structured alert records and traceability
-- Deterministic alert triage and decision routing
+- Deterministic alert triage
+- Security workflow routing
+- Policy evaluation and authorization controls
+- Human approval workflows
+- Fail-closed security design
 - Evidence-quality and missing-data validation
 - Windows and Linux administration
 - Networking and vulnerability assessment
@@ -33,13 +38,37 @@ My current focus is the point where IT troubleshooting, security monitoring, and
 
 ## Featured Project
 
-### [Project Athenaeum](https://github.com/ajchapa80/project-athenaeum)
+### Project Athenaeum
 
-Project Athenaeum started as a way to organize my hands-on cybersecurity work. Sixteen completed labs later, it has become the technical foundation for a much larger security project.
+Project Athenaeum started as a way to organize my hands-on cybersecurity work.
+
+Seventeen completed labs later, it has become the technical foundation for a much larger security project.
 
 The progression has been intentional:
 
-`Build the lab → Monitor the endpoint → Generate security events → Process alerts → Validate the data → Preserve traceability → Triage the condition → Decide what should happen next`
+```text
+Build the Lab
+      ↓
+Monitor the Endpoint
+      ↓
+Generate Security Events
+      ↓
+Process and Normalize Alerts
+      ↓
+Validate the Data
+      ↓
+Preserve Identity and Traceability
+      ↓
+Triage the Condition
+      ↓
+Route the Decision
+      ↓
+Evaluate Policy
+      ↓
+Require Approval When Necessary
+      ↓
+Determine Whether Action Is Allowed
+```
 
 Along the way, I have worked with:
 
@@ -55,61 +84,124 @@ Along the way, I have worked with:
 - Vendor-neutral JSON alert records
 - Source-to-record traceability
 - Deterministic cybersecurity triage
+- Policy evaluation
+- Approval-state processing
+- Fail-closed authorization logic
 - Repeatable testing and validation
 
-The public repository contains sanitized labs, working code, controlled test data, validation evidence, screenshots, and documentation.
+The public repository contains sanitized labs, working code, controlled test data, representative outputs, validation evidence, screenshots, and technical documentation.
 
 ---
 
 ## Current Project Milestone
 
-### Lab 16 — Alert Triage and Decision Logic
+### Lab 17 — Policy Evaluation and Approval Logic
 
-Security alerts rarely arrive with perfect information.
+Lab 16 answered:
 
-Some match conditions we already understand. Some are missing evidence. Some look unusual. Others simply do not support a confident conclusion yet.
+**What kind of security condition is this, and where should it go next?**
 
-Lab 16 asked a practical question:
+Lab 17 asked the next question:
 
-**How should a security system decide what happens next without guessing?**
+**If a response is proposed, is the system actually allowed to do it?**
 
-I built a deterministic triage layer that takes the structured alert records created in Lab 15 and routes them toward the next appropriate stage.
+I built a deterministic policy-evaluation and approval-control layer that sits between security triage and any future defensive execution.
 
-The system:
-
-- Preserves the original `AR-...` alert-record identity
-- Creates a separate `TR-...` triage-decision identity
-- Classifies conditions as `KNOWN_COMMON`, `INSUFFICIENT_DATA`, `UNUSUAL`, or `UNKNOWN`
-- Routes records toward `POLICY_EVALUATION` or `INVESTIGATION`
-- Gives missing material evidence priority over familiar-looking patterns
-- Keeps technical severity separate from the actual triage decision
-- Preserves uncertainty rather than inventing an answer
-- Records why each decision was made
-- Performs no remediation or defensive action
-
-The controlled validation processed five records with **zero failures**:
+The system preserves the decision chain:
 
 ```text
-2 KNOWN_COMMON
-1 INSUFFICIENT_DATA
-1 UNUSUAL
-1 UNKNOWN
-
-2 POLICY_EVALUATION
-3 INVESTIGATION
+Alert Record
+    AR-...
+      ↓
+Triage Decision
+    TR-...
+      ↓
+Policy Decision
+    PD-...
+      ↓
+Approval Record
+    AP-...
+    when required
 ```
 
-A second complete run reproduced the same decisions, preserved every original alert-record identity, generated new triage-decision identities, and left the first run intact.
+The lab demonstrates four possible workflow states:
 
-**Final Lab 16 validation: PASS**
+```text
+READY_FOR_ACTION
+AWAITING_APPROVAL
+INVESTIGATION
+NO_ACTION_AUTHORIZED
+```
 
-One of the most important lessons from this lab is simple:
+The distinction matters:
 
-> A HIGH-severity alert is not automatically malicious, and a LOW-severity alert is not automatically safe.
+> **Detection is not authorization. Triage is not authorization. Severity is not authorization. A recommendation is not authorization.**
 
-Severity is one signal. Evidence still has to support the decision.
+Seven controlled scenarios were defined before implementation:
 
-Lab 16 is intentionally a **decision-routing layer, not a remediation layer**. A `KNOWN_COMMON` classification does not mean benign or resolved, and `POLICY_EVALUATION` does not authorize an action.
+- Pre-authorized low-risk action
+- Approval required — pending
+- Approval required — approved
+- Approval required — denied
+- Investigation-lane protection
+- Prohibited high-risk action
+- Unsupported action
+
+The controlled validation produced:
+
+```text
+7 policy inputs
+
+1 AUTHORIZED
+3 REQUIRES_APPROVAL
+1 DEFERRED_TO_INVESTIGATION
+2 NOT_AUTHORIZED
+
+3 approval records
+
+1 PENDING
+1 APPROVED
+1 DENIED
+
+2 READY_FOR_ACTION
+1 AWAITING_APPROVAL
+1 INVESTIGATION
+3 NO_ACTION_AUTHORIZED
+
+7 Policy Decision records
+0 failures
+```
+
+The first run matched the frozen expected results exactly.
+
+A second complete execution reproduced the same policy, approval, and workflow results while generating new Policy Decision and Approval Record identities and preserving the first-run output.
+
+**Final Lab 17 technical validation: PASS**
+
+The lab also confirmed that:
+
+- Missing approval never becomes approval
+- HIGH severity cannot create authorization
+- LOW severity does not automatically mean safe
+- AI output cannot grant authorization
+- Unsupported behavior fails closed
+- Investigation cannot be bypassed by a requested action
+- Prohibited actions cannot become ready
+- Approval-required actions require explicit approval
+- Policy evaluation does not mark the underlying condition resolved
+- No defensive action was executed
+
+Most importantly:
+
+```text
+READY_FOR_ACTION
+```
+
+does **not** mean an action happened.
+
+It means the demonstrated policy and approval requirements have been satisfied and the request may be considered by a future controlled execution layer.
+
+That separation between **understanding**, **authorization**, and **execution** is one of the most important design boundaries in the project so far.
 
 ---
 
@@ -117,9 +209,9 @@ Lab 16 is intentionally a **decision-routing layer, not a remediation layer**. A
 
 Project Athenaeum is also helping me develop a larger cybersecurity concept called **Business Guardian**.
 
-The long-term goal is an affordable security platform for smaller organizations that may not have dedicated cybersecurity staff.
+The long-term goal is an affordable security platform designed to help smaller organizations that may not have dedicated cybersecurity staff understand and respond to security conditions more effectively.
 
-The idea is to eventually help a business move through a complete security lifecycle:
+The larger lifecycle looks like this:
 
 ```text
 Security Event
@@ -141,19 +233,37 @@ Verify the Result
 Document and Audit
 ```
 
-Private Business Guardian development has already progressed beyond the public portfolio labs. A live read-only Wazuh evidence connector was validated against my isolated lab using both server and indexed evidence paths.
+Project Athenaeum publicly demonstrates selected pieces of that progression through sanitized labs.
+
+Private Business Guardian development contains the product-level implementation.
+
+One private milestone involved validating a read-only Wazuh evidence connector against my isolated lab using both server and indexed evidence paths.
 
 **257 automated tests passed, and final live validation returned PASS.**
 
-The actual connector implementation, investigation workflows, production triage logic, policy and approval systems, defensive-action logic, verification mechanisms, tenant architecture, and other proprietary product work remain private.
+The private repository retains areas such as:
 
-Project Athenaeum shows the sanitized engineering progression without duplicating the private product.
+- Production connectors
+- Investigation workflows
+- Production triage logic
+- Customer policy catalogs
+- Approval workflows
+- Business-risk logic
+- Action-selection logic
+- Defensive-action adapters
+- Verification mechanisms
+- Rollback logic
+- Tenant architecture
+- Proprietary orchestration
+- Sensitive configuration
+
+Project Athenaeum shows meaningful engineering progress without publishing the commercial implementation.
 
 ---
 
 ## Home Lab
 
-My current lab gives me a controlled place to build, break, troubleshoot, validate, and restore systems without touching production environments.
+My home lab gives me a controlled place to build, break, troubleshoot, validate, and restore systems without touching production environments.
 
 Current infrastructure includes:
 
@@ -171,7 +281,7 @@ Current infrastructure includes:
 - Local Wazuh dashboard access
 - Recovery snapshots at major deployment stages
 
-The environment has supported everything from Linux fundamentals and Nmap scanning to live Windows telemetry, Wazuh evidence collection, Python processing, and deterministic security-triage validation.
+The environment has supported everything from Linux fundamentals and Nmap scanning to Windows telemetry, Wazuh evidence collection, Python processing, structured alert records, deterministic triage, and policy/approval validation.
 
 ---
 
@@ -179,7 +289,7 @@ The environment has supported everything from Linux fundamentals and Nmap scanni
 
 I try not to describe something as working simply because the code runs once.
 
-My labs increasingly use frozen expected results, controlled test data, repeat executions, failure cases, source preservation checks, and documented validation before a capability is treated as stable.
+My labs increasingly use frozen expected results, controlled test data, repeat executions, failure cases, source-preservation checks, safety boundaries, and documented validation before a capability is treated as stable.
 
 Validated work now includes:
 
@@ -188,7 +298,7 @@ Validated work now includes:
 - Python-based alert processing
 - Vendor-neutral alert normalization
 - Multiple-alert processing
-- Missing and malformed data handling
+- Missing and malformed-data handling
 - Per-alert failure isolation
 - Structured JSON alert records
 - Non-sensitive record identifiers
@@ -199,6 +309,13 @@ Validated work now includes:
 - Evidence-quality-first rule evaluation
 - Severity-independent decision logic
 - Investigation and policy-evaluation routing
+- Policy Decision records
+- Approval Records
+- `AR → TR → PD → AP` traceability
+- Explicit approval-state handling
+- Investigation-gate protection
+- Unsupported-action denial
+- Fail-closed authorization behavior
 - Output overwrite protection
 - Repeat-processing validation
 - Live read-only Wazuh evidence collection
@@ -220,6 +337,10 @@ A few rules guide the work:
 - Never fabricate missing evidence.
 - Keep source-specific integrations separate from reusable processing logic.
 - Use deterministic logic for core security decisions.
+- Do not treat technical severity as a verdict.
+- Do not treat a recommendation as authorization.
+- Require explicit approval when policy requires it.
+- Fail closed when safe authorization cannot be established.
 - Keep consequential actions appropriately human-controlled.
 - Do not call something resolved until the result has been verified.
 - Publish only sanitized, portfolio-appropriate material.
@@ -228,7 +349,7 @@ A few rules guide the work:
 
 ## Education and Development
 
-- Bachelor of Science in Cybersecurity with a concentration in Project Management Fundamentals — degree conferral expected September 2026
+- Bachelor of Science in Cybersecurity with a concentration in Project Management Fundamentals — academic requirements completed, degree conferral expected September 2026
 - InfoSec Labs Pre-Security Fundamentals Certificate
 - InfoSec Labs Alert Investigation Specialist training
 - CompTIA Security+ preparation
@@ -238,16 +359,22 @@ A few rules guide the work:
 
 ## Where I'm Headed
 
-My immediate goal is to move into an IT support, SOC analyst, cybersecurity support, or public-sector IT role where I can contribute practical troubleshooting, documentation, endpoint-monitoring, and security-analysis skills while continuing to grow technically.
+My immediate goal is to move into an IT support, SOC analyst, cybersecurity support, or public-sector IT role where I can contribute practical troubleshooting, documentation, endpoint-monitoring, security-analysis, and automation skills while continuing to grow technically.
 
 Longer term, I want to take on deeper security and systems responsibilities while continuing to build practical cybersecurity tooling and automation.
 
-Ultimately, I want to build security technology that helps smaller organizations understand what is happening in their environment and respond safely. That includes systems capable of performing supported defensive actions when policy and authorization permit, while keeping consequential decisions under appropriate human control and verifying that the action actually solved the problem.
+Ultimately, I want to build security technology that helps smaller organizations understand what is happening in their environment and respond safely.
+
+That includes systems capable of eventually performing supported defensive actions when policy and authorization permit, while keeping consequential decisions under appropriate human control.
+
+And there is one rule I want to preserve all the way through that lifecycle:
+
+> **Nothing is resolved until the result is verified.**
 
 ---
 
 ## Connect With Me
 
-- [LinkedIn Profile](https://www.linkedin.com/in/aj-chapa-a5bb46277)
+- [LinkedIn Profile](https://www.linkedin.com/in/adolph-chapa-a5bb46277)
 - [Project Athenaeum](https://github.com/ajchapa80/project-athenaeum)
 - Additional projects and technical work are available through my GitHub repositories.
