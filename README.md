@@ -42,7 +42,7 @@ My current focus is the point where IT troubleshooting, security monitoring, and
 
 Project Athenaeum started as a way to organize my hands-on cybersecurity work.
 
-Seventeen completed labs later, it has become the technical foundation for a much larger security project.
+Eighteen completed labs later, it has become the technical foundation for a much larger security project.
 
 The progression has been intentional:
 
@@ -68,6 +68,10 @@ Evaluate Policy
 Require Approval When Necessary
       ↓
 Determine Whether Action Is Allowed
+      ↓
+Validate Live Evidence End to End
+      ↓
+Route Conservatively to Human Review
 ```
 
 Along the way, I have worked with:
@@ -88,6 +92,8 @@ Along the way, I have worked with:
 - Approval-state processing
 - Fail-closed authorization logic
 - Repeatable testing and validation
+- Live endpoint-to-investigation traceability
+- Read-only evidence-connector validation
 
 The public repository contains sanitized labs, working code, controlled test data, representative outputs, validation evidence, screenshots, and technical documentation.
 
@@ -95,113 +101,35 @@ The public repository contains sanitized labs, working code, controlled test dat
 
 ## Current Project Milestone
 
-### Lab 17 — Policy Evaluation and Approval Logic
+### Lab 18 — Controlled Adversary Simulation and End-to-End Detection Validation
 
-Lab 16 answered:
+Labs 15–17 validated the alert-record, triage, policy, and approval controls individually. Lab 18 tested whether those boundaries still held when the project processed live telemetry from the isolated lab.
 
-**What kind of security condition is this, and where should it go next?**
-
-Lab 17 asked the next question:
-
-**If a response is proposed, is the system actually allowed to do it?**
-
-I built a deterministic policy-evaluation and approval-control layer that sits between security triage and any future defensive execution.
-
-The system preserves the decision chain:
+The validated path was:
 
 ```text
-Alert Record
-    AR-...
+Controlled Kali activity
       ↓
-Triage Decision
-    TR-...
+Windows endpoint evidence
       ↓
-Policy Decision
-    PD-...
+Wazuh detection and traceability
       ↓
-Approval Record
-    AP-...
-    when required
+Business Guardian read-only evidence collection
+      ↓
+Investigation workflow
+      ↓
+HUMAN_REVIEW_REQUIRED
 ```
 
-The lab demonstrates four possible workflow states:
+Two independent, timestamped runs reproduced the same end-to-end path. Source and endpoint traceability were preserved, and the existing private Business Guardian investigation workflow collected the supporting evidence without duplicating its implementation in the public repository.
 
-```text
-READY_FOR_ACTION
-AWAITING_APPROVAL
-INVESTIGATION
-NO_ACTION_AUTHORIZED
-```
+The private validation baseline remained **264/264 tests passed**.
 
-The distinction matters:
+**Final Lab 18 technical validation: PASS**
 
-> **Detection is not authorization. Triage is not authorization. Severity is not authorization. A recommendation is not authorization.**
+The result demonstrates an integrated security-engineering workflow, not a production-ready security product. Evidence routed conservatively to `HUMAN_REVIEW_REQUIRED`; no remediation or defensive action was executed, and nothing was marked resolved.
 
-Seven controlled scenarios were defined before implementation:
-
-- Pre-authorized low-risk action
-- Approval required — pending
-- Approval required — approved
-- Approval required — denied
-- Investigation-lane protection
-- Prohibited high-risk action
-- Unsupported action
-
-The controlled validation produced:
-
-```text
-7 policy inputs
-
-1 AUTHORIZED
-3 REQUIRES_APPROVAL
-1 DEFERRED_TO_INVESTIGATION
-2 NOT_AUTHORIZED
-
-3 approval records
-
-1 PENDING
-1 APPROVED
-1 DENIED
-
-2 READY_FOR_ACTION
-1 AWAITING_APPROVAL
-1 INVESTIGATION
-3 NO_ACTION_AUTHORIZED
-
-7 Policy Decision records
-0 failures
-```
-
-The first run matched the frozen expected results exactly.
-
-A second complete execution reproduced the same policy, approval, and workflow results while generating new Policy Decision and Approval Record identities and preserving the first-run output.
-
-**Final Lab 17 technical validation: PASS**
-
-The lab also confirmed that:
-
-- Missing approval never becomes approval
-- HIGH severity cannot create authorization
-- LOW severity does not automatically mean safe
-- AI output cannot grant authorization
-- Unsupported behavior fails closed
-- Investigation cannot be bypassed by a requested action
-- Prohibited actions cannot become ready
-- Approval-required actions require explicit approval
-- Policy evaluation does not mark the underlying condition resolved
-- No defensive action was executed
-
-Most importantly:
-
-```text
-READY_FOR_ACTION
-```
-
-does **not** mean an action happened.
-
-It means the demonstrated policy and approval requirements have been satisfied and the request may be considered by a future controlled execution layer.
-
-That separation between **understanding**, **authorization**, and **execution** is one of the most important design boundaries in the project so far.
+Project Athenaeum is now completed and published through **Lab 18** while the product-level implementation remains private.
 
 ---
 
@@ -239,7 +167,7 @@ Private Business Guardian development contains the product-level implementation.
 
 One private milestone involved validating a read-only Wazuh evidence connector against my isolated lab using both server and indexed evidence paths.
 
-**257 automated tests passed, and final live validation returned PASS.**
+That private baseline has since grown to **264/264 tests passed** and remained passing during Lab 18's two live end-to-end validation runs.
 
 The private repository retains areas such as:
 
@@ -269,6 +197,7 @@ Current infrastructure includes:
 
 - Windows 11 host computer
 - Oracle VirtualBox
+- Microsoft Hyper-V for the validated three-VM Lab 18 environment
 - Kali Linux security workstation
 - Ubuntu Linux practice VM
 - Metasploitable 2 vulnerable target
@@ -319,6 +248,8 @@ Validated work now includes:
 - Output overwrite protection
 - Repeat-processing validation
 - Live read-only Wazuh evidence collection
+- Repeatable live endpoint-to-investigation validation
+- Conservative routing to `HUMAN_REVIEW_REQUIRED`
 
 ---
 
