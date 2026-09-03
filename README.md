@@ -1,4 +1,5 @@
 # A.J. Chapa
+
 ## Cybersecurity | Information Technology | Security Operations
 
 I enjoy figuring out why something failed, proving what happened, and documenting the solution clearly enough that someone else can follow it.
@@ -30,6 +31,8 @@ My current focus is the point where IT troubleshooting, security monitoring, and
 - Human approval workflows
 - Fail-closed security design
 - Evidence-quality and missing-data validation
+- Defensive execution-boundary design
+- Verification and rollback safety requirements
 - Windows and Linux administration
 - Networking and vulnerability assessment
 - CompTIA Security+ preparation
@@ -42,7 +45,7 @@ My current focus is the point where IT troubleshooting, security monitoring, and
 
 Project Athenaeum started as a way to organize my hands-on cybersecurity work.
 
-Eighteen completed labs later, it has become the technical foundation for a much larger security project.
+Nineteen completed labs later, it has become the technical foundation for a much larger security project.
 
 The progression has been intentional:
 
@@ -72,6 +75,8 @@ Determine Whether Action Is Allowed
 Validate Live Evidence End to End
       ↓
 Route Conservatively to Human Review
+      ↓
+Define the Safety Contract for Future Execution
 ```
 
 Along the way, I have worked with:
@@ -94,6 +99,8 @@ Along the way, I have worked with:
 - Repeatable testing and validation
 - Live endpoint-to-investigation traceability
 - Read-only evidence-connector validation
+- Defensive execution-boundary design
+- Independent verification and rollback safety contracts
 
 The public repository contains sanitized labs, working code, controlled test data, representative outputs, validation evidence, screenshots, and technical documentation.
 
@@ -101,35 +108,52 @@ The public repository contains sanitized labs, working code, controlled test dat
 
 ## Current Project Milestone
 
-### Lab 18 — Controlled Adversary Simulation and End-to-End Detection Validation
+### Lab 19 — Controlled Action Execution Boundary: Requirements, Safety Contracts, and Validation Design
 
-Labs 15–17 validated the alert-record, triage, policy, and approval controls individually. Lab 18 tested whether those boundaries still held when the project processed live telemetry from the isolated lab.
+Lab 18 proved that Project Athenaeum could follow live security telemetry from controlled activity through Wazuh detection, read-only evidence collection, and the existing Business Guardian investigation workflow without bypassing human review.
 
-The validated path was:
+Lab 19 deliberately did **not** add remediation.
+
+Instead, it asked the question that must be answered before any future system is allowed to take defensive action:
+
+**What safety contract has to exist before controlled execution can be trusted?**
+
+The resulting design establishes this future boundary:
 
 ```text
-Controlled Kali activity
+READY_FOR_ACTION
       ↓
-Windows endpoint evidence
+Execution Validation
       ↓
-Wazuh detection and traceability
+Controlled Execution
       ↓
-Business Guardian read-only evidence collection
+Independent Verification
       ↓
-Investigation workflow
+Rollback When Required
       ↓
-HUMAN_REVIEW_REQUIRED
+Verified Outcome
+      ↓
+Resolution Eligibility
 ```
 
-Two independent, timestamped runs reproduced the same end-to-end path. Source and endpoint traceability were preserved, and the existing private Business Guardian investigation workflow collected the supporting evidence without duplicating its implementation in the public repository.
+Several rules are now frozen before implementation begins:
 
-The private validation baseline remained **264/264 tests passed**.
+- `READY_FOR_ACTION` means eligibility, not execution.
+- Execution success does not equal verification.
+- Positive independent verification is required before resolution eligibility.
+- A successful rollback proves that an attempted change was reversed; it does not prove the original security condition was resolved.
+- Audit history must preserve previous requests, execution attempts, verification results, failures, and rollback activity.
+- No defensive action or remediation was executed during Lab 19.
 
-**Final Lab 18 technical validation: PASS**
+**Lab 19 design validation: PASS — DESIGN CONTRACT ONLY**
 
-The result demonstrates an integrated security-engineering workflow, not a production-ready security product. Evidence routed conservatively to `HUMAN_REVIEW_REQUIRED`; no remediation or defensive action was executed, and nothing was marked resolved.
+This milestone is important because the project is moving toward the point where software may eventually affect real systems.
 
-Project Athenaeum is now completed and published through **Lab 18** while the product-level implementation remains private.
+Before building that capability, the safety rules, evidence requirements, verification boundaries, rollback expectations, and audit responsibilities are being defined first.
+
+Project Athenaeum is now completed and published through **Lab 19**.
+
+Lab 20 is planned but has not started.
 
 ---
 
@@ -139,7 +163,7 @@ Project Athenaeum is also helping me develop a larger cybersecurity concept call
 
 The long-term goal is an affordable security platform designed to help smaller organizations that may not have dedicated cybersecurity staff understand and respond to security conditions more effectively.
 
-The larger lifecycle looks like this:
+The intended lifecycle is:
 
 ```text
 Security Event
@@ -156,7 +180,9 @@ Policy / Approval
       ↓
 Authorized Defensive Action
       ↓
-Verify the Result
+Independent Verification
+      ↓
+Rollback When Required
       ↓
 Document and Audit
 ```
@@ -165,22 +191,25 @@ Project Athenaeum publicly demonstrates selected pieces of that progression thro
 
 Private Business Guardian development contains the product-level implementation.
 
-One private milestone involved validating a read-only Wazuh evidence connector against my isolated lab using both server and indexed evidence paths.
+The currently validated private work includes a read-only Wazuh evidence and investigation path. That work supports evidence collection, source traceability, investigation intake and planning, evidence sufficiency decisions, conservative routing, audit-oriented output, and controlled failure handling.
 
-That private baseline has since grown to **264/264 tests passed** and remained passing during Lab 18's two live end-to-end validation runs.
+The private automated validation baseline reached **264/264 tests passed** and remained passing during Lab 18's two live end-to-end validation runs.
 
-The private repository retains areas such as:
+An operational defensive-action execution, independent verification, and rollback subsystem should **not** be inferred from the Lab 19 design work.
 
-- Production connectors
+Lab 19 defines the safety contract that must exist before that future capability is implemented and validated.
+
+The private repository is where product-level work belongs, including areas such as:
+
+- Production connectors and adapters
 - Investigation workflows
-- Production triage logic
-- Customer policy catalogs
-- Approval workflows
+- Proprietary decision logic
+- Customer and tenant policy configuration
 - Business-risk logic
-- Action-selection logic
-- Defensive-action adapters
-- Verification mechanisms
-- Rollback logic
+- Production approval workflows
+- Future controlled execution implementation
+- Future independent verification
+- Future rollback mechanisms
 - Tenant architecture
 - Proprietary orchestration
 - Sensitive configuration
@@ -210,7 +239,7 @@ Current infrastructure includes:
 - Local Wazuh dashboard access
 - Recovery snapshots at major deployment stages
 
-The environment has supported everything from Linux fundamentals and Nmap scanning to Windows telemetry, Wazuh evidence collection, Python processing, structured alert records, deterministic triage, and policy/approval validation.
+The environment has supported everything from Linux fundamentals and Nmap scanning to Windows telemetry, Wazuh evidence collection, Python processing, structured alert records, deterministic triage, policy and approval validation, live end-to-end investigation testing, and controlled execution-boundary design.
 
 ---
 
@@ -250,6 +279,15 @@ Validated work now includes:
 - Live read-only Wazuh evidence collection
 - Repeatable live endpoint-to-investigation validation
 - Conservative routing to `HUMAN_REVIEW_REQUIRED`
+- Controlled-action execution-boundary requirements
+- Independent verification requirements
+- Rollback safety requirements
+- Audit-history preservation requirements
+- Resolution eligibility dependent on positive verification
+
+Lab 19 validates the **design contract** for those final execution-related controls.
+
+It does not claim that an operational remediation engine has been implemented.
 
 ---
 
@@ -273,7 +311,10 @@ A few rules guide the work:
 - Require explicit approval when policy requires it.
 - Fail closed when safe authorization cannot be established.
 - Keep consequential actions appropriately human-controlled.
-- Do not call something resolved until the result has been verified.
+- Do not confuse successful execution with successful verification.
+- Treat rollback as reversal, not proof that the original security problem is resolved.
+- Do not call something resolved until the result has been independently verified.
+- Preserve audit history rather than overwriting prior decisions or outcomes.
 - Publish only sanitized, portfolio-appropriate material.
 
 ---
@@ -297,6 +338,22 @@ Longer term, I want to take on deeper security and systems responsibilities whil
 Ultimately, I want to build security technology that helps smaller organizations understand what is happening in their environment and respond safely.
 
 That includes systems capable of eventually performing supported defensive actions when policy and authorization permit, while keeping consequential decisions under appropriate human control.
+
+The work leading into that capability matters just as much as the execution itself.
+
+A security system should be able to prove:
+
+```text
+Was the action authorized?
+        ↓
+Was it executed as intended?
+        ↓
+Did independent evidence verify the result?
+        ↓
+If it failed, was rollback required and successful?
+        ↓
+Is there enough evidence to consider the condition resolved?
+```
 
 And there is one rule I want to preserve all the way through that lifecycle:
 
