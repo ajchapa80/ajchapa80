@@ -165,32 +165,45 @@ Project Athenaeum publicly demonstrates selected pieces of that progression thro
 
 Private Business Guardian development contains the product-level implementation.
 
-The currently validated private work includes a read-only Wazuh evidence and investigation path. That work supports evidence collection, source traceability, investigation intake and planning, evidence sufficiency decisions, conservative routing, audit-oriented output, and controlled failure handling.
+The currently validated work has progressed beyond alert interpretation and investigation into controlled defensive-action workflows.
 
-The private automated validation baseline reached **264/264 tests passed** and remained passing during Lab 18's two live end-to-end validation runs.
+Business Guardian development has demonstrated:
 
-An operational defensive-action execution, independent verification, and rollback subsystem should **not** be inferred from the Lab 19 design work.
+- Structured security-event ingestion and normalization
+- Evidence preservation and source traceability
+- Deterministic triage and investigation routing
+- Evidence-sufficiency decisions
+- Human-controlled authorization boundaries
+- Controlled defensive-action execution in an isolated test environment
+- Independent post-action verification
+- Audit-oriented workflow records and failure handling
+- Operator-facing dashboard requirements and UX design
 
-Lab 19 defines the safety contract that must exist before that future capability is implemented and validated.
+A major milestone was reached during **Lab 22**, when Business Guardian executed its first controlled defensive action on an authorized isolated Windows endpoint and independently verified the resulting state.
+
+The private regression baseline reached **413/413 passing tests** during that validation work.
+
+**Lab 23** then translated those security and safety workflows into a complete operator-facing UX baseline covering alert review, investigation, human approval, action progress, independent verification, reporting, audit history, system health, and settings.
+
+Business Guardian intentionally keeps recommendation, authorization, execution, independent verification, and final resolution as separate workflow states.
+
+Automatic remediation and automatic rollback should not be inferred from the current work. Consequential defensive actions remain policy-controlled and human-authorized, and rollback remains a future product capability.
 
 The private repository is where product-level work belongs, including areas such as:
 
 - Production connectors and adapters
 - Investigation workflows
-- Proprietary decision logic
+- Proprietary decision and business-risk logic
 - Customer and tenant policy configuration
-- Business-risk logic
 - Production approval workflows
-- Future controlled execution implementation
-- Future independent verification
+- Controlled defensive-action orchestration
+- Independent verification logic
 - Future rollback mechanisms
 - Tenant architecture
 - Proprietary orchestration
 - Sensitive configuration
 
-Project Athenaeum shows meaningful engineering progress without publishing the commercial implementation.
-
----
+Project Athenaeum publicly demonstrates selected, sanitized engineering milestones without publishing the commercial implementation.
 
 ## Home Lab
 
