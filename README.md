@@ -39,7 +39,7 @@ My current focus is the point where IT troubleshooting, security monitoring, and
 - Networking and vulnerability assessment
 - CompTIA Security+ preparation
 
-The **Post-Lab-27 Architecture Checkpoint** is complete, approved, and frozen. It established the high-level architecture for governed learning, organizational security memory, a Technician AI Copilot, tenant and customer context, fleet and update management, and future governed response growth. **Lab 28 — Technician Portal Requirements & UX Design** is also completed and published. Technician Portal implementation and validation are the next stage; Lab 29 is not yet presented as a public milestone here.
+The **Post-Lab-27 Architecture Checkpoint** remains complete, approved, and frozen. It established the high-level architecture for governed learning, organizational security memory, a Technician AI Copilot, tenant and customer context, fleet and update management, and future governed response growth. **Lab 29 — Technician Portal MVP** is now completed and published. Lab 30 planning is next; Lab 30 has not started.
 
 ---
 
@@ -49,7 +49,7 @@ The **Post-Lab-27 Architecture Checkpoint** is complete, approved, and frozen. I
 
 Project Athenaeum started as a way to organize my hands-on cybersecurity work.
 
-Twenty-eight labs later, it has become the technical foundation for a much larger security project. Project Athenaeum is **COMPLETED AND PUBLISHED THROUGH LAB 28**, including **Lab 28 — Technician Portal Requirements & UX Design**.
+Twenty-nine labs later, it has become the technical foundation for a much larger security project. Project Athenaeum is **COMPLETED AND PUBLISHED THROUGH LAB 29**, including **Lab 29 — Technician Portal MVP**.
 
 The progression has been intentional:
 
@@ -101,6 +101,8 @@ Preserve Immutable Resolution Records and History
 Complete the Post-Lab-27 Architecture Checkpoint
       ↓
 Design the Technician Portal Experience
+      ↓
+Implement and Validate the Technician Portal MVP
 ```
 
 Along the way, I have worked with:
@@ -132,6 +134,8 @@ Along the way, I have worked with:
 - Organization-isolated reporting with auditable provenance
 - Frozen post-Lab-27 architecture for governed learning and technician workflows
 - Technician Portal requirements, UX architecture, and human-authority boundaries
+- Authenticated Technician Portal workflows with server-authoritative organization context
+- Structured AI advisory, governed response actions, independent verification, and rollback
 
 The public repository contains sanitized labs, working code, controlled test data, representative outputs, validation evidence, screenshots, and technical documentation.
 
@@ -139,35 +143,43 @@ The public repository contains sanitized labs, working code, controlled test dat
 
 ## Current Project Milestone
 
-### Lab 28 — Technician Portal Requirements & UX Design
+### Lab 29 — Technician Portal MVP
 
-Lab 28 defines a separate technician-facing workspace for authorized multi-customer security operations. The design keeps active customer and tenant context visible while technicians review incidents, examine evidence, use structured AI advisory assistance, prepare governed Response Actions, and inspect audit history.
+Lab 29 implements the separate technician-facing workspace designed in Lab 28. The completed MVP provides authenticated technician access, server-authoritative organization and tenant context, an integrated Incident Workspace, customer-safe reporting views, structured AI Copilot advisory, governed Response Action preparation and approval, audit history, and system-health visibility.
 
-The portal follows two principles: **Instrument panel, not dashboard** and **Cybersecurity aesthetic without cybersecurity clutter**. Its information hierarchy supports technical depth without turning the primary workspace into an unreadable security console.
+The portal follows two principles: **Instrument panel, not dashboard** and **Cybersecurity aesthetic without cybersecurity clutter**. Stale tenant context is rejected, cross-tenant access fails closed, and customer context remains visible around consequential work.
 
 ```text
-Persistent Active-Customer Context
+Authenticated Technician Workspace
       ↓
-Incident Workspace
+Active Organization / Tenant Context
       ↓
-Evidence Review
+Incident Workspace and Evidence Review
       ↓
 Structured AI Copilot Advisory
       ↓
-Prepare Governed Response Action
+Governed Response Action Proposal
       ↓
-Send for Explicit Approval
+Authorized Human / Policy Approval
       ↓
-Execution / Verification / Rollback Remain Separate
+Controlled Execution
+      ↓
+Independent Verification
+      ↓
+Separately Approved Rollback and Safe-State Restoration
 ```
 
-The Incident Workspace uses an evidence-left and AI-right concept. Structured Copilot content remains advisory and visually distinct from authoritative evidence, deterministic decisions, approvals, execution, independent verification, rollback, and closure.
+The authority boundary remains explicit:
 
-The design includes no AI Execute button. AI cannot authorize actions, and proposal, approval, execution, verification, rollback, resolution eligibility, and human closure remain separate. Customer context is repeated around consequential steps, and audit-history, accessibility, readability, visible focus, and semantic status cues are part of the frozen design.
+**AI MAY PROPOSE. AUTHORIZED HUMAN/POLICY APPROVES. DETERMINISTIC BUSINESS GUARDIAN CONTROLS EXECUTE AND VERIFY.**
 
-**Final Lab 28 result: COMPLETED AND PUBLISHED**
+The live isolated validation completed exactly one forward dispatch and one separately approved rollback dispatch. Both outcomes were independently verified, the final safe state was restored, and the incident did not close automatically. Customer-safe audit labels were refined to make proposal, approval, execution, verification, and rollback activity clearer.
 
-This is a requirements and UX-design milestone. It does not claim that Lab 29 implementation is publicly complete, that the Technician AI Copilot operates autonomously, or that Business Guardian is production ready.
+The final Business Guardian CI run passed with **1,014/1,014 discovered tests**, and the Lab 27 workflow pytest step also passed.
+
+**Final Lab 29 result: COMPLETED AND PUBLISHED**
+
+This is a controlled MVP milestone. It does not claim autonomous remediation, unrestricted action capability, or production readiness.
 
 ---
 
@@ -225,7 +237,7 @@ The private repository is where product-level work belongs, including areas such
 
 Project Athenaeum publicly demonstrates selected, sanitized engineering milestones without publishing the commercial implementation.
 
-Business Guardian remains under development and is not presented as production ready. The Post-Lab-27 Architecture Checkpoint and Lab 28 Technician Portal requirements and UX design are complete, approved, and frozen. The project is moving into implementation and validation of the Technician Portal while keeping governed learning, organizational security memory, technician AI assistance, tenant context, fleet management, and response growth within explicit human-authority and safety boundaries. Lab 29 is not yet presented as a public milestone here.
+Business Guardian remains under development and is not presented as production ready. The Post-Lab-27 Architecture Checkpoint remains complete, approved, and frozen; Lab 28 established the Technician Portal requirements and UX design; and Lab 29 now publicly demonstrates the integrated Technician Portal MVP. Product-level implementation remains private, AI remains advisory, organization context remains server-authoritative, and controlled execution, independent verification, rollback, and closure remain separately governed. Lab 30 planning is next, and Lab 30 has not started.
 
 ---
 
