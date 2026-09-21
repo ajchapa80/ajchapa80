@@ -24,6 +24,7 @@ My current focus is the point where IT troubleshooting, security monitoring, and
 - Windows endpoint telemetry
 - Python security automation
 - Vendor-neutral security-data processing
+- Connector, observer, adapter, and independent-verifier architecture
 - Structured alert records and traceability
 - Deterministic alert triage
 - Security workflow routing
@@ -35,11 +36,14 @@ My current focus is the point where IT troubleshooting, security monitoring, and
 - Independent verification and controlled rollback
 - Authoritative incident reporting and immutable Resolution Records
 - Evidence-quality and missing-data validation
+- Customer-facing Initial Security Assessment composition
+- Separate customer-safe and technician-safe AI advisory paths
+- Production-oriented, read-only Microsoft 365 / Entra integration foundations
 - Windows and Linux administration
 - Networking and vulnerability assessment
 - CompTIA Security+ preparation
 
-The **Post-Lab-27 Architecture Checkpoint** remains complete, approved, and frozen. It established the high-level architecture for governed learning, organizational security memory, a Technician AI Copilot, tenant and customer context, fleet and update management, and future governed response growth. **Lab 29 — Technician Portal MVP** is now completed and published. Lab 30 planning is next; Lab 30 has not started.
+The **Post-Lab-27 Architecture Checkpoint** remains complete, approved, and frozen. **Lab 29 — Technician Portal MVP** is completed and published. Since that public milestone, the private Business Guardian product has continued at a sanitized portfolio level: vendor-neutral integration architecture, a customer-facing Initial Security Assessment, separate customer-safe and technician-safe AI advisory hooks, and a production-oriented read-only Microsoft 365 / Entra foundation that has been synthetically validated. These are product foundations, not claims of broad production deployment.
 
 ---
 
@@ -137,7 +141,9 @@ Along the way, I have worked with:
 - Authenticated Technician Portal workflows with server-authoritative organization context
 - Structured AI advisory, governed response actions, independent verification, and rollback
 
-The public repository contains sanitized labs, working code, controlled test data, representative outputs, validation evidence, screenshots, and technical documentation.
+The public repository contains sanitized labs, working code, controlled test data, representative outputs, validation evidence, screenshots, and technical documentation. It provides the detailed learning and proof path behind the private product.
+
+The current product direction is vendor-neutral. Wazuh and Hyper-V remain useful development and reference integrations rather than the universal architecture. Future integration paths can include Microsoft 365 / Entra, Microsoft Defender, optional Microsoft Sentinel, physical Windows and Windows Server systems, VMware, Linux, firewalls, and other platforms through separated connector, observer, adapter, and independent-verifier responsibilities.
 
 ---
 
@@ -187,7 +193,7 @@ This is a controlled MVP milestone. It does not claim autonomous remediation, un
 
 Project Athenaeum is also helping me develop a larger cybersecurity concept called **Business Guardian**.
 
-The long-term goal is an affordable, vendor-neutral, AI-assisted security operations platform designed to help smaller organizations understand and respond to security conditions more effectively. The work emphasizes explainable investigation, deterministic safety controls, human-governed response actions, independent verification, trustworthy reporting, auditability, and future governed learning from verified outcomes.
+The long-term goal is an affordable, vendor-neutral, AI-assisted security operations platform designed to help smaller organizations understand and respond to security conditions more effectively. The work emphasizes explainable investigation, deterministic safety controls, human-governed response actions, independent verification, trustworthy reporting, auditability, and future governed learning from verified outcomes. Current private product foundations include a customer-facing Initial Security Assessment, separate advisory experiences for customers and technicians, and a production-oriented read-only Microsoft 365 / Entra integration foundation validated with controlled synthetic evidence.
 
 The intended lifecycle is:
 
@@ -219,7 +225,9 @@ Private Business Guardian development contains the product-level implementation.
 
 Validated public milestones now demonstrate structured evidence handling, deterministic triage, human-controlled authorization, organization-scoped dashboard workflows, one fixed defensive capability, independent outcome verification, separately authorized rollback, authoritative incident reporting, immutable Resolution Records, and auditable lifecycle history.
 
-Business Guardian intentionally keeps recommendation, authorization, execution, independent verification, rollback, and final resolution as separate workflow states. It does not expose arbitrary remediation authority, and AI remains advisory.
+Business Guardian intentionally keeps recommendation, authorization, execution, independent verification, rollback, reconciliation, and final resolution as separate workflow states. It does not expose arbitrary remediation authority, and AI remains advisory.
+
+Customer-side AI is intended to provide plain-English security and uncertainty explanations, identify what needs attention, and explain how Business Guardian can help. Technician-side AI can provide deeper evidence summaries, correlation assistance, next-evidence suggestions, and reviewed technical guidance. Deterministic Business Guardian logic retains authority, authorized humans or policy approve consequential action, and independent verification remains separate from execution.
 
 The private repository is where product-level work belongs, including areas such as:
 
@@ -237,7 +245,7 @@ The private repository is where product-level work belongs, including areas such
 
 Project Athenaeum publicly demonstrates selected, sanitized engineering milestones without publishing the commercial implementation.
 
-Business Guardian remains under development and is not presented as production ready. The Post-Lab-27 Architecture Checkpoint remains complete, approved, and frozen; Lab 28 established the Technician Portal requirements and UX design; and Lab 29 now publicly demonstrates the integrated Technician Portal MVP. Product-level implementation remains private, AI remains advisory, organization context remains server-authoritative, and controlled execution, independent verification, rollback, and closure remain separately governed. Lab 30 planning is next, and Lab 30 has not started.
+Business Guardian remains under development and is not presented as production ready. The Post-Lab-27 Architecture Checkpoint remains complete, approved, and frozen; Lab 28 established the Technician Portal requirements and UX design; and Lab 29 publicly demonstrates the integrated Technician Portal MVP. Later private progress is represented only through sanitized product-level summaries. AI remains advisory, organization context remains server-authoritative, and controlled execution, independent verification, rollback, reconciliation, and closure remain separately governed.
 
 ---
 
@@ -245,11 +253,13 @@ Business Guardian remains under development and is not presented as production r
 
 My home lab gives me a controlled place to build, break, troubleshoot, validate, and restore systems without touching production environments.
 
-Current infrastructure includes:
+The historical foundation labs used VirtualBox. Later authorized Business Guardian validation established Hyper-V as the current virtualization standard; neither platform defines the vendor-neutral product architecture.
+
+The lab environment has included:
 
 - Windows 11 host computer
-- Oracle VirtualBox
-- Microsoft Hyper-V for authorized isolated Business Guardian validation
+- Oracle VirtualBox for historical foundation labs
+- Microsoft Hyper-V for later authorized isolated validation
 - Kali Linux security workstation
 - Ubuntu Linux practice VM
 - Metasploitable 2 vulnerable target
