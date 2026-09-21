@@ -4,13 +4,15 @@
 
 I enjoy figuring out why something failed, proving what happened, and documenting the solution clearly enough that someone else can follow it.
 
-I recently completed the academic requirements for a Bachelor of Science in Cybersecurity with a concentration in Project Management Fundamentals, with degree conferral expected in September 2026.
+I completed a Bachelor of Science in Cybersecurity with a concentration in Project Management Fundamentals in 2026.
 
 Alongside school and full-time work, I have been building practical experience in security operations, endpoint monitoring, alert investigation, Python automation, Windows and Linux administration, networking, IT support, and security-focused software development.
 
 My professional background also includes public-sector security operations, team leadership, policy compliance, incident awareness, troubleshooting, customer service, and working in environments where reliability, judgment, and clear communication matter.
 
-Much of my current technical work is documented through **Project Athenaeum**, a hands-on portfolio that has grown from basic system administration labs into a structured cybersecurity development environment.
+My learning and validation journey is documented through **Project Athenaeum**, a hands-on portfolio that grew from basic system administration labs into a structured cybersecurity engineering record.
+
+Project Athenaeum is completed and published through **Lab 29 — Technician Portal MVP**. The numbered labs document the path that led into Business Guardian; that lab phase is now complete. Project Athenaeum remains public as the historical proof-of-work portfolio, while ongoing Business Guardian development continues privately under a product-engineering structure.
 
 ---
 
@@ -43,7 +45,7 @@ My current focus is the point where IT troubleshooting, security monitoring, and
 - Networking and vulnerability assessment
 - CompTIA Security+ preparation
 
-The **Post-Lab-27 Architecture Checkpoint** remains complete, approved, and frozen. **Lab 29 — Technician Portal MVP** is completed and published. Since that public milestone, the private Business Guardian product has continued at a sanitized portfolio level: vendor-neutral integration architecture, a customer-facing Initial Security Assessment, separate customer-safe and technician-safe AI advisory hooks, and a production-oriented read-only Microsoft 365 / Entra foundation that has been synthetically validated. These are product foundations, not claims of broad production deployment.
+The **Post-Lab-27 Architecture Checkpoint** remains an important approved and frozen historical design milestone. Later private work has formalized and extended the vendor-neutral product architecture while preserving its safety boundaries. Current sanitized foundations include a customer-facing Initial Security Assessment, implemented customer-safe and technician-safe AI advisory hooks, and a production-oriented read-only Microsoft 365 / Entra foundation that has been synthetically validated. A production AI provider is not active, learning AI remains future and governed, and these foundations are not claims of broad production deployment.
 
 ---
 
@@ -53,7 +55,7 @@ The **Post-Lab-27 Architecture Checkpoint** remains complete, approved, and froz
 
 Project Athenaeum started as a way to organize my hands-on cybersecurity work.
 
-Twenty-nine labs later, it has become the technical foundation for a much larger security project. Project Athenaeum is **COMPLETED AND PUBLISHED THROUGH LAB 29**, including **Lab 29 — Technician Portal MVP**.
+Twenty-nine labs later, it became the technical foundation for a much larger security project. Project Athenaeum is **COMPLETED AND PUBLISHED THROUGH LAB 29**, including **Lab 29 — Technician Portal MVP**. Lab 29 is the latest public numbered milestone; no continuing numbered Business Guardian lab sequence is planned by default.
 
 The progression has been intentional:
 
@@ -143,7 +145,7 @@ Along the way, I have worked with:
 
 The public repository contains sanitized labs, working code, controlled test data, representative outputs, validation evidence, screenshots, and technical documentation. It provides the detailed learning and proof path behind the private product.
 
-The current product direction is vendor-neutral. Wazuh and Hyper-V remain useful development and reference integrations rather than the universal architecture. Future integration paths can include Microsoft 365 / Entra, Microsoft Defender, optional Microsoft Sentinel, physical Windows and Windows Server systems, VMware, Linux, firewalls, and other platforms through separated connector, observer, adapter, and independent-verifier responsibilities.
+The current product direction is vendor-neutral. Wazuh remains an important development and security-data integration, while a production-oriented read-only Microsoft 365 / Entra integration foundation now also exists. Wazuh and Hyper-V remain useful reference integrations rather than the universal architecture. Future integration paths can include Microsoft Defender, optional Microsoft Sentinel, physical Windows and Windows Server systems, VMware, Linux, firewalls, and other platforms through separated connector, observer, adapter, and independent-verifier responsibilities.
 
 ---
 
@@ -227,7 +229,7 @@ Validated public milestones now demonstrate structured evidence handling, determ
 
 Business Guardian intentionally keeps recommendation, authorization, execution, independent verification, rollback, reconciliation, and final resolution as separate workflow states. It does not expose arbitrary remediation authority, and AI remains advisory.
 
-Customer-side AI is intended to provide plain-English security and uncertainty explanations, identify what needs attention, and explain how Business Guardian can help. Technician-side AI can provide deeper evidence summaries, correlation assistance, next-evidence suggestions, and reviewed technical guidance. Deterministic Business Guardian logic retains authority, authorized humans or policy approve consequential action, and independent verification remains separate from execution.
+Customer-side and technician-side AI advisory hooks are implemented as product foundations. They support plain-English explanations, evidence summaries, correlation assistance, next-evidence suggestions, and reviewed technical guidance. A production AI provider is not active, governed learning remains future work, deterministic Business Guardian logic retains authority, authorized humans or policy approve consequential action, and independent verification remains separate from execution.
 
 The private repository is where product-level work belongs, including areas such as:
 
@@ -355,7 +357,7 @@ A few rules guide the work:
 
 ## Education and Development
 
-- Bachelor of Science in Cybersecurity with a concentration in Project Management Fundamentals — academic requirements completed, degree conferral expected September 2026
+- Bachelor of Science in Cybersecurity with a concentration in Project Management Fundamentals — completed 2026
 - InfoSec Labs Pre-Security Fundamentals Certificate
 - InfoSec Labs Alert Investigation Specialist training
 - CompTIA Security+ preparation
@@ -392,6 +394,19 @@ Is there enough evidence to consider the condition resolved?
 And there is one rule I want to preserve all the way through that lifecycle:
 
 > **Nothing is resolved until the result is verified.**
+
+---
+
+## Public Project Direction
+
+This profile is the front door to my public technical work:
+
+- **Project Athenaeum** remains the completed historical learning and validation portfolio.
+- **Business Guardian** continues privately through product-engineering phases, integration milestones, and validation checkpoints.
+- Meaningful Business Guardian progress may be shared through sanitized milestone repositories when it is appropriate to publish.
+- Future security tools, IT and cybersecurity utilities, products, and portfolio projects may appear in separate purpose-built public repositories.
+
+That separation preserves the public/private boundary while keeping this profile current with my professional and project direction. No private source code, implementation detail, customer data, credentials, or sensitive infrastructure information is published through this profile.
 
 ---
 
