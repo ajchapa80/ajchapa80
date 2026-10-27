@@ -45,7 +45,27 @@ My current focus is the point where IT troubleshooting, security monitoring, and
 - Networking and vulnerability assessment
 - CompTIA Security+ preparation
 
-The **Post-Lab-27 Architecture Checkpoint** remains an important approved and frozen historical design milestone. Later private work has formalized and extended the vendor-neutral product architecture while preserving its safety boundaries. Current sanitized foundations include a customer-facing Initial Security Assessment, implemented customer-safe and technician-safe AI advisory hooks, and a production-oriented read-only Microsoft 365 / Entra foundation that has been synthetically validated. A production AI provider is not active, learning AI remains future and governed, and these foundations are not claims of broad production deployment.
+The **Post-Lab-27 Architecture Checkpoint** remains an important approved and frozen historical design milestone. Later private work has formalized and extended the vendor-neutral product architecture while preserving its safety boundaries. Current sanitized foundations include a customer-facing Initial Security Assessment, implemented customer-safe and technician-safe AI advisory hooks, and a read-only Microsoft 365 / Entra connector foundation with controlled-live validation of its bounded scope in a non-production tenant. Licensing-related visibility gaps remain explicit, and that validation does not establish production readiness. A production AI provider is not active, learning AI remains future and governed, and these foundations are not claims of broad production deployment.
+
+---
+
+## Selected Engineering Milestones
+
+**Documented milestone cutoff: October 25, 2026**
+
+These accomplishments come from separate stages of development. They do not imply that every capability was tested together in the installed release.
+
+- **End-to-end security evidence:** Validated two repeatable Windows → Wazuh → Business Guardian investigation runs that preserved source traceability and stopped at human review without remediation. [Lab 18](https://github.com/ajchapa80/project-athenaeum/blob/main/lab-18-controlled-adversary-simulation-end-to-end-detection-validation/README.md)
+- **A real, controlled firewall change:** Disabled one exact pre-existing Windows Firewall allow rule on an authorized isolated test workstation, independently verified the Disabled state, then separately approved and independently verified its restoration to Enabled. Exactly one forward dispatch and one rollback dispatch occurred, with no automatic closure or retry. [Lab 26](https://github.com/ajchapa80/project-athenaeum/blob/main/lab-26-first-dashboard-controlled-defensive-action/README.md) The earlier [Lab 22](https://github.com/ajchapa80/project-athenaeum/blob/main/lab-22-first-controlled-live-defensive-action-independent-verification/README.md) first-live-action milestone used manual teardown, not product rollback.
+- **Customer and technician workspaces:** Built integrated interfaces with server-enforced organization boundaries, investigation workflows, structured advisory views, and human-governed response controls. [Customer Dashboard](https://github.com/ajchapa80/project-athenaeum/blob/main/lab-24-business-guardian-customer-dashboard-mvp/README.md) · [Technician Portal](https://github.com/ajchapa80/project-athenaeum/blob/main/lab-29-technician-portal-mvp/README.md)
+- **Trustworthy reporting and durable history:** Implemented evidence-backed incident reports, immutable Resolution Records, restart-persistent workflow state, and development-stage controlled backup and isolated restore. Reporting does not automatically close incidents. [Lab 27](https://github.com/ajchapa80/project-athenaeum/blob/main/lab-27-incident-reporting-and-resolution-records/README.md) · [Lab 24](https://github.com/ajchapa80/project-athenaeum/blob/main/lab-24-business-guardian-customer-dashboard-mvp/README.md)
+- **Assessment and Microsoft integration:** Built evidence-backed security assessments and completed controlled-live validation of the read-only Microsoft 365 / Entra connector scope in a non-production tenant. Licensing-related visibility limits and unavailable evidence remained explicit; this was not production validation.
+- **Windows endpoint evidence:** Validated bounded live Windows/Defender observation and customer-facing coverage reporting. Partial first-run visibility remained distinct from complete history, recurring monitoring, or a clean endpoint.
+- **Installation and update delivery:** Successfully installed and updated Business Guardian in an isolated development VM, verified installed files against accepted releases, and preserved protected state and configuration during the update.
+
+The installation/update checkpoint left the service stopped and disabled. It did not establish successful runtime activation of that installation, customer deployment, or production readiness. Earlier lab action and service observations remain separate historical evidence. AI remains advisory, and no unrestricted remediation authority is claimed.
+
+Project Athenaeum remains complete through Lab 29. Later product implementation and detailed operational evidence remain private.
 
 ---
 
@@ -145,11 +165,11 @@ Along the way, I have worked with:
 
 The public repository contains sanitized labs, working code, controlled test data, representative outputs, validation evidence, screenshots, and technical documentation. It provides the detailed learning and proof path behind the private product.
 
-The current product direction is vendor-neutral. Wazuh remains an important development and security-data integration, while a production-oriented read-only Microsoft 365 / Entra integration foundation now also exists. Wazuh and Hyper-V remain useful reference integrations rather than the universal architecture. Future integration paths can include Microsoft Defender, optional Microsoft Sentinel, physical Windows and Windows Server systems, VMware, Linux, firewalls, and other platforms through separated connector, observer, adapter, and independent-verifier responsibilities.
+The current product direction is vendor-neutral. Wazuh remains an important development and security-data integration, while a production-oriented read-only Microsoft 365 / Entra integration foundation now also exists. Wazuh and Hyper-V remain useful reference integrations rather than the universal architecture. Bounded Windows/Defender observation has also been validated in a controlled environment. Broader integration paths can include additional Defender capabilities, optional Microsoft Sentinel, physical Windows and Windows Server systems, VMware, Linux, firewalls, and other platforms through separated connector, observer, adapter, and independent-verifier responsibilities.
 
 ---
 
-## Current Project Milestone
+## Latest Public Portfolio Milestone
 
 ### Lab 29 — Technician Portal MVP
 
@@ -195,7 +215,7 @@ This is a controlled MVP milestone. It does not claim autonomous remediation, un
 
 Project Athenaeum is also helping me develop a larger cybersecurity concept called **Business Guardian**.
 
-The long-term goal is an affordable, vendor-neutral, AI-assisted security operations platform designed to help smaller organizations understand and respond to security conditions more effectively. The work emphasizes explainable investigation, deterministic safety controls, human-governed response actions, independent verification, trustworthy reporting, auditability, and future governed learning from verified outcomes. Current private product foundations include a customer-facing Initial Security Assessment, separate advisory experiences for customers and technicians, and a production-oriented read-only Microsoft 365 / Entra integration foundation validated with controlled synthetic evidence.
+The long-term goal is an affordable, vendor-neutral, AI-assisted security operations platform designed to help smaller organizations understand and respond to security conditions more effectively. The work emphasizes explainable investigation, deterministic safety controls, human-governed response actions, independent verification, trustworthy reporting, auditability, and future governed learning from verified outcomes. Current private product foundations include a customer-facing Initial Security Assessment, separate advisory experiences for customers and technicians, and a read-only Microsoft 365 / Entra integration foundation validated through synthetic tests and controlled live reads in a non-production tenant, with licensing-related visibility limits preserved.
 
 The intended lifecycle is:
 
